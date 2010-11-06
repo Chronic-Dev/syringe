@@ -18,7 +18,7 @@
  **/
 
 #include <stdio.h>
-#include "libpois0n.h"
+#include "syringe.h"
 
 void print_progress(double progress, void* data) {
 	int i = 0;
@@ -46,19 +46,19 @@ void print_progress(double progress, void* data) {
 }
 
 int main(int argc, char* argv[]) {
-	pois0n_init();
-	pois0n_set_callback(&print_progress, NULL);
+	syringe_init();
+	syringe_set_callback(&print_progress, NULL);
 
 	info("Waiting for device to enter DFU mode\n");
-	while(pois0n_is_ready()) {
+	while(syringe_is_ready()) {
 		sleep(1);
 	}
 
 	info("Found device in DFU mode\n");
-	if(!pois0n_is_compatible()) {
-		pois0n_inject();
+	if(!syringe_is_compatible()) {
+		syringe_inject();
 	}
 
-	pois0n_exit();
+	syringe_exit();
 	return 0;
 }

@@ -1,5 +1,5 @@
 /**
-  * GreenPois0n Syringe - libpois0n.h
+  * GreenPois0n Syringe - syringe.h
   * Copyright (C) 2010 Chronic-Dev Team
   * Copyright (C) 2010 Joshua Hill
   *
@@ -17,8 +17,8 @@
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-#ifndef INJECTPOIS0N_H
-#define INJECTPOIS0N_H
+#ifndef SYRINGE_H
+#define SYRINGE_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,14 +26,14 @@ extern "C" {
 
 #include "common.h"
 
-typedef void(*pois0n_callback)(double progress, void* object);
+typedef void(*syringe_callback)(double progress, void* object);
 
-void pois0n_init();
-void pois0n_set_callback(pois0n_callback callback, void* object);
-int pois0n_is_ready();
-int pois0n_is_compatible();
-int pois0n_inject();
-void pois0n_exit();
+void syringe_init();
+void syringe_set_callback(syringe_callback callback, void* object);
+int syringe_is_ready();
+int syringe_is_compatible();
+int syringe_inject();
+void syringe_exit();
 
 #ifdef __cplusplus
 }
