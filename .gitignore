@@ -1,0 +1,11 @@
+
+*.opensdf
+*.sdf
+Debug/*
+_dependencies/curl/Debug/*
+_dependencies/curl/lib/_UpgradeReport_Files/*
+_dependencies/curl/lib/Debug/*
+*.suo
+_dependencies/zlib/Debug/*
+ipch/*
+*.vcxproj.user

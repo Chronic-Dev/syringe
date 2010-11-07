@@ -38,6 +38,7 @@
 static pois0n_callback progress_callback = NULL;
 static void* user_object = NULL;
 
+
 int recovery_callback(irecv_client_t client, const irecv_event_t* event) {
 	progress_callback(event->progress, user_object);
 	return 0;
@@ -49,7 +50,7 @@ void download_callback(ZipInfo* info, CDFile* file, size_t progress) {
 
 int send_command(char* command) {
 	unsigned int ret = 0;
-	irecv_error_t error = 0;
+	irecv_error_t error = IRECV_E_SUCCESS;
 	error = irecv_send_command(client, command);
 	if(error != IRECV_E_SUCCESS) {
 		printf("Unable to send command\n");
@@ -113,7 +114,7 @@ int fetch_firmware_image(const char* type, const char* output) {
 int upload_dfu_image(const char* type) {
 	char image[255];
 	struct stat buf;
-	irecv_error_t error = 0;
+	irecv_error_t error = IRECV_E_SUCCESS;
 
 	memset(image, '\0', 255);
 	snprintf(image, 254, "%s.%s", type, device->model);
@@ -147,7 +148,7 @@ int upload_dfu_image(const char* type) {
 int upload_firmware_image(const char* type) {
 	char image[255];
 	struct stat buf;
-	irecv_error_t error = 0;
+	irecv_error_t error = IRECV_E_SUCCESS;
 
 	memset(image, '\0', 255);
 	snprintf(image, 254, "%s.%s", type, device->model);
@@ -179,8 +180,8 @@ int upload_firmware_image(const char* type) {
 
 int upload_firmware_payload(char* type) {
 	int size = 0;
-	char* payload = NULL;
-	irecv_error_t error = 0;
+	const unsigned char* payload = NULL;
+	irecv_error_t error = IRECV_E_SUCCESS;
 
 	switch(device->index) {
 	case DEVICE_APPLETV2:
@@ -382,7 +383,7 @@ int upload_ramdisk() {
 int upload_kernelcache() {
 	struct stat buf;
 	char kernelcache[255];
-	irecv_error_t error = 0;
+	irecv_error_t error = IRECV_E_SUCCESS;
 
 	memset(kernelcache, '\0', 255);
 	memset(&buf, '\0', sizeof(buf));
@@ -430,7 +431,7 @@ int upload_ibec_payload() {
 }
 
 int boot_ramdisk() {
-	irecv_error_t error = 0;
+	irecv_error_t error = IRECV_E_SUCCESS;
 
 	// Add an exception for this since it's very different
 	if(device->index == DEVICE_APPLETV2) {
@@ -520,7 +521,7 @@ int boot_ramdisk() {
 }
 
 int boot_tethered() {
-	irecv_error_t error = 0;
+	irecv_error_t error = IRECV_E_SUCCESS;
 
 	debug("Initializing greenpois0n in iBoot\n");
 	irecv_send_command(client, "go");
@@ -590,7 +591,7 @@ int boot_tethered() {
 }
 
 int boot_iboot() {
-	irecv_error_t error = 0;
+	irecv_error_t error = IRECV_E_SUCCESS;
 
 	debug("Loading iBoot\n");
 	if(device->chip_id == 8720) {
@@ -663,7 +664,7 @@ int boot_iboot() {
 int execute_ibss_payload() {
 	int i = 0;
 	char* bootargs = NULL;
-	irecv_error_t error = 0;
+	irecv_error_t error = IRECV_E_SUCCESS;
 
 	debug("Initializing greenpois0n in iBSS\n");
 	irecv_send_command(client, "go");
@@ -719,7 +720,7 @@ void pois0n_init() {
 		system("killall -9 iTunesHelper");
 	#endif
 
-	#ifdef WIN32
+	#ifdef _WIN32
 		system("TASKKILL /F /IM iTunes.exe > NUL");
 		system("TASKKILL /F /IM iTunesHelper.exe > NUL");
 	#endif
@@ -731,7 +732,7 @@ void pois0n_set_callback(pois0n_callback callback, void* object) {
 }
 
 int pois0n_is_ready() {
-	irecv_error_t error = 0;
+	irecv_error_t error = IRECV_E_SUCCESS;
 
 	//////////////////////////////////////
 	// Begin
@@ -756,7 +757,7 @@ int pois0n_is_ready() {
 }
 
 int pois0n_is_compatible() {
-	irecv_error_t error = 0;
+	irecv_error_t error = IRECV_E_SUCCESS;
 	info("Checking if device is compatible with this jailbreak\n");
 
 	debug("Checking the device type\n");

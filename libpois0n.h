@@ -34,6 +34,7 @@ int pois0n_is_ready();
 int pois0n_is_compatible();
 int pois0n_inject();
 void pois0n_exit();
+int boot_iboot();
 
 #ifdef __cplusplus
 }

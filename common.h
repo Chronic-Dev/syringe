@@ -26,8 +26,12 @@ extern "C" {
 
 #include "libirecovery.h"
 
-#ifdef WIN32
+#ifdef _WIN32
 #define sleep(n) Sleep(1000 * n)
+#ifdef _MSC_VER
+#pragma comment (lib, "setupapi.lib")
+#define snprintf _snprintf
+#endif
 #endif
 
 #define info(...) printf(__VA_ARGS__)

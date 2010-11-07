@@ -239,7 +239,7 @@ ZipInfo* PartialZipInit(const char* url)
 
 	if(info->centralDirectoryDesc)
 	{
-		info->centralDirectory = malloc(info->centralDirectoryDesc->CDSize);
+		info->centralDirectory = (char*)malloc(info->centralDirectoryDesc->CDSize);
 		start = info->centralDirectoryDesc->CDOffset;
 		end = start + info->centralDirectoryDesc->CDSize - 1;
 		sprintf(sRange, "%" PRIu64 "-%" PRIu64, start, end);

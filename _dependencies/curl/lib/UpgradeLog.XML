@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="libcurl">
+</Property><Property Name="Solution File" Value="C:\Users\msftguy\Desktop\test-syringe\syringe\curl\lib\libcurl.sln">
+</Property><Property Name="Date" Value="Saturday, November 06, 2010">
+</Property><Property Name="Time" Value="22:35:20 PM">
+</Property></Properties><Event ErrorLevel="0" Project="libcurl" Source="libcurl.vcproj" Description="Converting project file 'C:\Users\msftguy\Desktop\test-syringe\syringe\curl\lib\libcurl.vcproj'.">
+</Event><Event ErrorLevel="1" Project="libcurl" Source="libcurl.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="1" Project="libcurl" Source="libcurl.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="libcurl" Source="libcurl.vcproj" Description="MSB8012: $(TargetPath) ('C:\Users\msftguy\Desktop\test-syringe\syringe\curl\lib\.\Release\libcurl.lib') does not match the Librarian's OutputFile property value '.\Release\libcurl.lib' ('C:\Users\msftguy\Desktop\test-syringe\syringe\curl\lib\Release\libcurl.lib') in project configuration 'Release|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Lib.OutputFile).">
+</Event><Event ErrorLevel="1" Project="libcurl" Source="libcurl.vcproj" Description="MSB8012: $(TargetPath) ('C:\Users\msftguy\Desktop\test-syringe\syringe\curl\lib\.\Debug\libcurl.lib') does not match the Librarian's OutputFile property value '.\Debug\libcurl.lib' ('C:\Users\msftguy\Desktop\test-syringe\syringe\curl\lib\Debug\libcurl.lib') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Lib.OutputFile).">
+</Event><Event ErrorLevel="0" Project="libcurl" Source="libcurl.vcproj" Description="Done converting to new project file 'C:\Users\msftguy\Desktop\test-syringe\syringe\curl\lib\libcurl.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="libcurl" Source="libcurl.vcproj" Description="Converted">
+</Event></UpgradeLog>

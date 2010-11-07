@@ -27,7 +27,14 @@ extern "C" {
 #include <inttypes.h>
 #include <curl/curl.h>
 
-#ifdef WIN32
+#ifdef _MSC_VER
+#define STATIC_INLINE static __inline
+#else
+#define STATIC_INLINE STATIC_INLINE
+#endif
+
+
+#ifdef _WIN32
 #define fseeko fseeko64
 #define ftello ftello64
 #define off_t off64_t
@@ -55,7 +62,7 @@ extern "C" {
 
 extern char endianness;
 
-static inline void flipEndian(unsigned char* x, int length) {
+STATIC_INLINE void flipEndian(unsigned char* x, int length) {
   int i;
   unsigned char tmp;
 
@@ -70,7 +77,7 @@ static inline void flipEndian(unsigned char* x, int length) {
   }
 }
 
-static inline void flipEndianLE(unsigned char* x, int length) {
+STATIC_INLINE void flipEndianLE(unsigned char* x, int length) {
   int i;
   unsigned char tmp;
 
@@ -85,10 +92,10 @@ static inline void flipEndianLE(unsigned char* x, int length) {
   }
 }
 
-static inline void hexToBytes(const char* hex, uint8_t** buffer, size_t* bytes) {
+STATIC_INLINE void hexToBytes(const char* hex, uint8_t** buffer, size_t* bytes) {
+	size_t i;
 	*bytes = strlen(hex) / 2;
 	*buffer = (uint8_t*) malloc(*bytes);
-	size_t i;
 	for(i = 0; i < *bytes; i++) {
 		uint32_t byte;
 		sscanf(hex, "%2x", &byte);
@@ -97,10 +104,10 @@ static inline void hexToBytes(const char* hex, uint8_t** buffer, size_t* bytes) 
 	}
 }
 
-static inline void hexToInts(const char* hex, unsigned int** buffer, size_t* bytes) {
+STATIC_INLINE void hexToInts(const char* hex, unsigned int** buffer, size_t* bytes) {
+	size_t i;
 	*bytes = strlen(hex) / 2;
 	*buffer = (unsigned int*) malloc((*bytes) * sizeof(int));
-	size_t i;
 	for(i = 0; i < *bytes; i++) {
 		sscanf(hex, "%2x", &((*buffer)[i]));
 		hex += 2;
@@ -120,6 +127,14 @@ typedef struct io_func_struct {
   closeFunc close;
 } io_func;
 
+#ifdef _MSC_VER
+#define ATTRIBUTE_PACKED
+#pragma pack(push)
+#pragma pack(1)
+#else
+#define ATTRIBUTE_PACKED __attribute__ ((packed))
+#endif
+
 typedef struct EndOfCD {
 	uint32_t signature;
 	uint16_t diskNo;
@@ -129,7 +144,7 @@ typedef struct EndOfCD {
 	uint32_t CDSize;
 	uint32_t CDOffset;
 	uint16_t lenComment;
-} __attribute__ ((packed)) EndOfCD;
+} ATTRIBUTE_PACKED EndOfCD;
 
 typedef struct CDFile {
 	uint32_t signature;
@@ -149,7 +164,7 @@ typedef struct CDFile {
 	uint16_t internalAttr;
 	uint32_t externalAttr;
 	uint32_t offset;
-} __attribute__ ((packed)) CDFile;
+} ATTRIBUTE_PACKED CDFile;
 
 typedef struct LocalFile {
 	uint32_t signature;
@@ -163,7 +178,11 @@ typedef struct LocalFile {
 	uint32_t size;
 	uint16_t lenFileName;
 	uint16_t lenExtra;
-} __attribute__ ((packed)) LocalFile;
+} ATTRIBUTE_PACKED LocalFile;
+
+#ifdef _MSC_VER
+#pragma pack(pop)
+#endif
 
 typedef struct ZipInfo ZipInfo;
 

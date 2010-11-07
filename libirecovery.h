@@ -20,11 +20,13 @@
 #ifndef LIBIRECOVERY_H
 #define LIBIRECOVERY_H
 
+#include <inttypes.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#ifndef WIN32
+#ifndef _WIN32
 #include <libusb-1.0/libusb.h>
 #else
 #define WIN32_LEAN_AND_MEAN
@@ -123,7 +125,7 @@ struct irecv_client {
 	unsigned short mode;
 	char serial[256];
 	
-#ifndef WIN32
+#ifndef _WIN32
 	libusb_device_handle* handle;
 #else
 	HANDLE handle;
@@ -210,6 +212,15 @@ irecv_error_t irecv_reset_counters(irecv_client_t client);
 irecv_error_t irecv_finish_transfer(irecv_client_t client);
 irecv_error_t irecv_recv_buffer(irecv_client_t client, char* buffer, unsigned long length);
 irecv_error_t irecv_get_device(irecv_client_t client, irecv_device_t* device);
+
+int irecv_control_transfer( irecv_client_t client,
+							uint8_t bmRequestType,
+							uint8_t bRequest,
+							uint16_t wValue,
+							uint16_t wIndex,
+							unsigned char *data,
+							uint16_t wLength,
+							unsigned int timeout);
 
 #ifdef __cplusplus
 }
