@@ -32,9 +32,9 @@ extern "C" {
 
 #define info(...) printf(__VA_ARGS__)
 #define error(...) fprintf(stderr, __VA_ARGS__)
-#define debug(...) if(syringe_debug) fprintf(stderr, __VA_ARGS__)
+#define debug(...) if(libpois0n_debug) fprintf(stderr, __VA_ARGS__)
 
-extern int syringe_debug;
+extern int libpois0n_debug;
 extern irecv_client_t client;
 extern irecv_device_t device;
 
