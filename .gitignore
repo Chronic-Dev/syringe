@@ -9,3 +9,6 @@ _dependencies/curl/lib/Debug/*
 _dependencies/zlib/Debug/*
 ipch/*
 *.vcxproj.user
+_dependencies/curl/Release/*
+_dependencies/zlib/Release/*
+Release/*

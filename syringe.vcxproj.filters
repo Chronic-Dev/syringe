@@ -75,4 +75,9 @@
       <Filter>Header Files\Missing Headers</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="syringe.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

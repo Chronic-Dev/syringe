@@ -1,0 +1,13 @@
+LIBRARY syringe
+
+EXPORTS
+	irecv_open
+	irecv_reset
+	irecv_close
+
+	irecv_send_file
+	irecv_send_command
+
+	limera1n_exploit
+	steaks4uce_exploit
+
