@@ -38,7 +38,6 @@
 #include "libirecovery.h"
 
 #define BUFFER_SIZE 0x1000
-#define debug(...) if(libirecovery_debug) fprintf(stderr, __VA_ARGS__)
 
 static int libirecovery_debug = 0;
 #ifndef _WIN32
@@ -834,7 +833,7 @@ irecv_error_t irecv_getenv(irecv_client_t client, const char* variable, char** v
 irecv_error_t irecv_getret(irecv_client_t client, unsigned int* value) {
 	int ret = 0;
 	if (check_context(client) != IRECV_E_SUCCESS) return IRECV_E_NO_DEVICE;
-	*value = NULL;
+	*value = 0;
 
 	char* response = (char*) malloc(256);
 	if (response == NULL) {
