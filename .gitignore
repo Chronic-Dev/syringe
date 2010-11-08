@@ -12,3 +12,9 @@ ipch/*
 _dependencies/curl/Release/*
 _dependencies/zlib/Release/*
 Release/*
+*.o
+*.a
+exploits/limera1n/payload.bin
+exploits/steaks4uce/payload.bin
+injectpois0n
+

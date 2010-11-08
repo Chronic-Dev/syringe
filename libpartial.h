@@ -30,7 +30,7 @@ extern "C" {
 #ifdef _MSC_VER
 #define STATIC_INLINE static __inline
 #else
-#define STATIC_INLINE STATIC_INLINE
+#define STATIC_INLINE static inline
 #endif
 
 
