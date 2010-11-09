@@ -14,6 +14,8 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Dll-Debug|Win32 = Dll-Debug|Win32
+		Dll-Release|Win32 = Dll-Release|Win32
 		Release|Win32 = Release|Win32
 		tetheredboot-Debug|Win32 = tetheredboot-Debug|Win32
 		tetheredboot-Release|Win32 = tetheredboot-Release|Win32
@@ -21,6 +23,10 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Debug|Win32.ActiveCfg = Debug|Win32
 		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Debug|Win32.Build.0 = Debug|Win32
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Dll-Debug|Win32.ActiveCfg = Dll-Debug|Win32
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Dll-Debug|Win32.Build.0 = Dll-Debug|Win32
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Dll-Release|Win32.ActiveCfg = Dll-Release|Win32
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Dll-Release|Win32.Build.0 = Dll-Release|Win32
 		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Release|Win32.ActiveCfg = Release|Win32
 		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Release|Win32.Build.0 = Release|Win32
 		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.tetheredboot-Debug|Win32.ActiveCfg = tetheredboot-Debug|Win32
@@ -29,6 +35,10 @@ Global
 		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.tetheredboot-Release|Win32.Build.0 = tetheredboot-Release|Win32
 		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Debug|Win32.ActiveCfg = Debug|Win32
 		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Debug|Win32.Build.0 = Debug|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Dll-Debug|Win32.ActiveCfg = Dll-Debug|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Dll-Debug|Win32.Build.0 = Dll-Debug|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Dll-Release|Win32.ActiveCfg = Dll-Release|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Dll-Release|Win32.Build.0 = Dll-Release|Win32
 		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Release|Win32.ActiveCfg = Release|Win32
 		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Release|Win32.Build.0 = Release|Win32
 		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.tetheredboot-Debug|Win32.ActiveCfg = tetheredboot-Debug|Win32
@@ -37,6 +47,10 @@ Global
 		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.tetheredboot-Release|Win32.Build.0 = tetheredboot-Release|Win32
 		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Debug|Win32.ActiveCfg = Debug|Win32
 		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Debug|Win32.Build.0 = Debug|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Dll-Debug|Win32.ActiveCfg = Dll-Debug|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Dll-Debug|Win32.Build.0 = Dll-Debug|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Dll-Release|Win32.ActiveCfg = Dll-Release|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Dll-Release|Win32.Build.0 = Dll-Release|Win32
 		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Release|Win32.ActiveCfg = Release|Win32
 		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Release|Win32.Build.0 = Release|Win32
 		{3EAB100F-D679-4536-AD59-382EDE1E927C}.tetheredboot-Debug|Win32.ActiveCfg = tetheredboot-Debug|Win32

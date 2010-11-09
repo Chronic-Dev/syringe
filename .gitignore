@@ -31,3 +31,6 @@ _dependencies/curl/tetheredboot-Release/*
 _dependencies/zlib/tetheredboot-Debug/*
 _dependencies/zlib/tetheredboot-Release/*
 tetheredboot-Release/*
+Dll-Debug
+Dll-Release
+tools/bin2c.exe
