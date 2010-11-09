@@ -162,8 +162,10 @@ irecv_error_t mobiledevice_openpipes(irecv_client_t client) {
 	}
 
 	if (client->iBootPath == NULL) {
-		client->mode = kDfuMode;
-		client->handle = client->hDFU;
+		if (client->hDFU != NULL) {
+			client->mode = kDfuMode;
+			client->handle = client->hDFU;
+		}
 	} else {
 		client->mode = kRecoveryMode2;
 		client->handle = client->hIB;
