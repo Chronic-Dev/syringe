@@ -25,6 +25,11 @@
 #include <zlib.h>
 #include <libgen.h>
 
+#ifdef __cplusplus
+#define __STDC_FORMAT_MACROS
+#include <inttypes.h>
+#endif
+
 #include "libpartial.h"
 
 static size_t count = 0;

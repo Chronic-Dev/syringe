@@ -19,6 +19,8 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
+
 #include "libpois0n.h"
 
 void print_progress(double progress, void* data) {
@@ -46,7 +48,20 @@ void print_progress(double progress, void* data) {
 	}
 }
 
+void usage()
+{
+	printf("Usage: tetheredboot <ibss> <kernelcache>\n");
+	exit(0);
+}
+
 int main(int argc, char* argv[]) {
+	int result = 0;
+	if (argc != 3) {
+		usage();
+	}
+	const char* ibssFile = argv[1];
+	const char* kernelcacheFile = argv[2];
+	
 	pois0n_init();
 	pois0n_set_callback(&print_progress, NULL);
 
@@ -56,10 +71,42 @@ int main(int argc, char* argv[]) {
 	}
 
 	info("Found device in DFU mode\n");
-	if(!pois0n_is_compatible()) {
-		pois0n_inject();
+	result = pois0n_is_compatible();
+	if (result < 0) {
+		error("Your device in incompatible with this exploit!\n");
+		return result;
 	}
-
+	
+	result = pois0n_injectonly();
+	if (result < 0) {
+		error("Exploit injection failed!\n");
+		return result;
+	}
+	
+	debug("Uploading %s to device\n", ibssFile);
+	irecv_error_t error = irecv_send_file(client, ibssFile, 1);
+	if(error != IRECV_E_SUCCESS) {
+		error("Unable to upload iBSS\n");
+		debug("%s\n", irecv_strerror(error));
+		return -1;
+	}
+	
+	client = irecv_reconnect(client, 10);
+	
+	debug("Uploading %s to device\n", kernelcacheFile);
+	error = irecv_send_file(client, kernelcacheFile, 1);
+	if(error != IRECV_E_SUCCESS) {
+		error("Unable to upload kernelcache\n");
+		debug("%s\n", irecv_strerror(error));
+		return -1;
+	}
+	
+	error = irecv_send_command(client, "bootx");
+	if(error != IRECV_E_SUCCESS) {
+		error("Unable send the bootx command\n");
+		return -1;
+	}
+	
 	pois0n_exit();
 	return 0;
 }

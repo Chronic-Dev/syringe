@@ -33,6 +33,7 @@ void pois0n_set_callback(pois0n_callback callback, void* object);
 int pois0n_is_ready();
 int pois0n_is_compatible();
 int pois0n_inject();
+int pois0n_injectonly();
 void pois0n_exit();
 int boot_iboot();
 

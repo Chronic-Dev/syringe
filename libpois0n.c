@@ -176,9 +176,10 @@ int upload_firmware_image(const char* type) {
 		debug("%s\n", irecv_strerror(error));
 		return -1;
 	}
+	return 0;
 }
 
-int upload_firmware_payload(char* type) {
+int upload_firmware_payload(const char* type) {
 	int size = 0;
 	const unsigned char* payload = NULL;
 	irecv_error_t error = IRECV_E_SUCCESS;
@@ -662,7 +663,7 @@ int boot_iboot() {
 }
 
 int execute_ibss_payload() {
-	int i = 0;
+	//int i = 0;
 	char* bootargs = NULL;
 	irecv_error_t error = IRECV_E_SUCCESS;
 
@@ -790,7 +791,7 @@ void pois0n_exit() {
 	irecv_exit();
 }
 
-int pois0n_inject() {
+int pois0n_injectonly() {
 	//////////////////////////////////////
 	// Send exploit
 	if(device->chip_id == 8930){
@@ -873,7 +874,16 @@ int pois0n_inject() {
 		error("Sorry, this device is not currently supported\n");
 		return -1;
 	}
+	return 0;
+}
 
+int pois0n_inject() {
+	int result = 0;
+	result = pois0n_injectonly();
+	if (result < 0) {
+		error("DFU Exploit injection failed (%u)\n", result);
+		return result;
+	}
 	//////////////////////////////////////
 	// Send iBSS
 	debug("Preparing to upload iBSS\n");

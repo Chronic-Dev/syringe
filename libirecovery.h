@@ -107,14 +107,14 @@ typedef enum {
 
 typedef struct {
 	int size;
-	char* data;
+	const char* data;
 	double progress;
 	irecv_event_type type;
 } irecv_event_t;
 
 struct irecv_client;
 typedef struct irecv_client* irecv_client_t;
-typedef struct irecv_device* irecv_device_t;
+typedef const struct irecv_device* irecv_device_t;
 typedef int(*irecv_event_cb_t)(irecv_client_t client, const irecv_event_t* event);
 
 struct irecv_client {
@@ -152,7 +152,7 @@ struct irecv_device {
 	const char* url;
 };
 
-static struct irecv_device irecv_devices[] = {
+static const struct irecv_device irecv_devices[] = {
 	{  0, "iPhone1,1",  "m68ap",  0,  8900,
 	"http://appldnld.apple.com.edgesuite.net/content.info.apple.com/iPhone/061-7481.20100202.4orot/iPhone1,1_3.1.3_7E18_Restore.ipsw" },
 	{  1, "iPod1,1",    "n45ap",  2,  8900,
@@ -192,7 +192,7 @@ irecv_error_t irecv_event_subscribe(irecv_client_t client, irecv_event_type type
 irecv_error_t irecv_event_unsubscribe(irecv_client_t client, irecv_event_type type);
 
 irecv_error_t irecv_send_file(irecv_client_t client, const char* filename, int dfuNotifyFinished);
-irecv_error_t irecv_send_command(irecv_client_t client, char* command);
+irecv_error_t irecv_send_command(irecv_client_t client, const char* command);
 irecv_error_t irecv_send_buffer(irecv_client_t client, unsigned char* buffer, unsigned long length, int dfuNotifyFinished);
 
 irecv_error_t irecv_saveenv(irecv_client_t client);

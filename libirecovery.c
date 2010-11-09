@@ -228,7 +228,7 @@ int irecv_control_transfer( irecv_client_t client,
 		IOReturn kresult;
 		IOUSBDevRequest req;
 		bzero(&req, sizeof(req));
-		struct darwin_device_handle_priv *priv = (struct darwin_device_handle_priv *)client->handle->os_priv;
+		//struct darwin_device_handle_priv *priv = (struct darwin_device_handle_priv *)client->handle->os_priv;
 		struct darwin_device_priv *dpriv = (struct darwin_device_priv *)client->handle->dev->os_priv;
 		req.bmRequestType     = bmRequestType;
 		req.bRequest          = bRequest;
@@ -239,6 +239,7 @@ int irecv_control_transfer( irecv_client_t client,
 		kresult = (*(dpriv->device))->DeviceRequestAsync(dpriv->device, &req, (IOAsyncCallback1) dummy_callback, NULL);
 		usleep(5 * 1000);
 		kresult = (*(dpriv->device))->USBDeviceAbortPipeZero (dpriv->device);
+		return kresult == KERN_SUCCESS ? 0 : -1;
 	} else {
 		return libusb_control_transfer(client->handle, bmRequestType, bRequest, wValue, wIndex, data, wLength, timeout);
 	}
@@ -591,20 +592,20 @@ void irecv_set_debug_level(int level) {
 #endif
 }
 
-static irecv_error_t irecv_send_command_raw(irecv_client_t client, char* command) {
+static irecv_error_t irecv_send_command_raw(irecv_client_t client, const char* command) {
 	unsigned int length = strlen(command);
 	if (length >= 0x100) {
 		length = 0xFF;
 	}
 
 	if (length > 0) {
-		int ret = irecv_control_transfer(client, 0x40, 0, 0, 0, (unsigned char*) command, length + 1, 1000);
+		irecv_control_transfer(client, 0x40, 0, 0, 0, (unsigned char*) command, length + 1, 1000);
 	}
 
 	return IRECV_E_SUCCESS;
 }
 
-irecv_error_t irecv_send_command(irecv_client_t client, char* command) {
+irecv_error_t irecv_send_command(irecv_client_t client, const char* command) {
 	irecv_error_t error = IRECV_E_SUCCESS;
 	if (check_context(client) != IRECV_E_SUCCESS) return IRECV_E_NO_DEVICE;
 
@@ -714,7 +715,7 @@ irecv_error_t irecv_send_buffer(irecv_client_t client, unsigned char* buffer, un
 	}
 
 	int i = 0;
-	double progress = 0;
+	//double progress = 0;
 	unsigned long count = 0;
 	unsigned int status = 0;
 	int bytes = 0;
@@ -1064,7 +1065,7 @@ irecv_error_t irecv_reset_counters(irecv_client_t client) {
 }
 
 irecv_error_t irecv_recv_buffer(irecv_client_t client, char* buffer, unsigned long length) {
-	irecv_error_t error = IRECV_E_SUCCESS;
+	//irecv_error_t error = IRECV_E_SUCCESS;
 	int recovery_mode = (client->mode != kDfuMode);
 
 	if (check_context(client) != IRECV_E_SUCCESS) return IRECV_E_NO_DEVICE;
@@ -1080,9 +1081,9 @@ irecv_error_t irecv_recv_buffer(irecv_client_t client, char* buffer, unsigned lo
 
 	int i = 0;
 	int bytes = 0;
-	double progress = 0;
+	//double progress = 0;
 	unsigned long count = 0;
-	unsigned int status = 0;
+	//unsigned int status = 0;
 	for (i = 0; i < packets; i++) {
 		unsigned short size = (i+1) < packets ? packet_size : last;
 		bytes = irecv_control_transfer(client, 0xA1, 2, 0, 0, (unsigned char*)(buffer + i * packet_size), size, 1000);
