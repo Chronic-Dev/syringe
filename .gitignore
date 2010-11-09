@@ -24,3 +24,10 @@ tetheredboot
 tools/bin2c
 .DS_Store
 
+
+tetheredboot-Debug/*
+_dependencies/curl/tetheredboot-Debug/*
+_dependencies/curl/tetheredboot-Release/*
+_dependencies/zlib/tetheredboot-Debug/*
+_dependencies/zlib/tetheredboot-Release/*
+tetheredboot-Release/*
