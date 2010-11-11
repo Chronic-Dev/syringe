@@ -28,14 +28,14 @@ extern "C" {
 
 typedef void(*pois0n_callback)(double progress, void* object);
 
-void pois0n_init();
-void pois0n_set_callback(pois0n_callback callback, void* object);
-int pois0n_is_ready();
-int pois0n_is_compatible();
-int pois0n_inject();
-int pois0n_injectonly();
-void pois0n_exit();
-int boot_iboot();
+void SYRINGE_EXPORT pois0n_init();
+void SYRINGE_EXPORT pois0n_set_callback(pois0n_callback callback, void* object);
+int SYRINGE_EXPORT pois0n_is_ready();
+int SYRINGE_EXPORT pois0n_is_compatible();
+int SYRINGE_EXPORT pois0n_inject();
+int SYRINGE_EXPORT pois0n_injectonly();
+void SYRINGE_EXPORT pois0n_exit();
+int SYRINGE_EXPORT boot_iboot();
 
 #ifdef __cplusplus
 }

@@ -34,6 +34,12 @@ extern "C" {
 #define sleep(n) Sleep(1000 * n)
 #endif
 
+#ifdef LIBIRECOVERY_EXPORTS
+#define LIBIRECOVERY_EXPORT __declspec(dllexport)
+#else
+#define LIBIRECOVERY_EXPORT __declspec(dllimport)
+#endif
+
 #define APPLE_VENDOR_ID 0x05AC
 
 #define CPID_UNKNOWN        -1
@@ -179,41 +185,41 @@ static const struct irecv_device irecv_devices[] = {
 
 void irecv_set_debug_level(int level);
 const char* irecv_strerror(irecv_error_t error);
-irecv_error_t irecv_open_attempts(irecv_client_t* pclient, int attempts);
-irecv_error_t irecv_open(irecv_client_t* client);
-irecv_error_t irecv_reset(irecv_client_t client);
-irecv_error_t irecv_close(irecv_client_t client);
-irecv_error_t irecv_receive(irecv_client_t client);
-irecv_error_t irecv_send_exploit(irecv_client_t client);
-irecv_error_t irecv_execute_script(irecv_client_t client, const char* filename);
-irecv_error_t irecv_set_configuration(irecv_client_t client, int configuration);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_open_attempts(irecv_client_t* pclient, int attempts);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_open(irecv_client_t* client);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_reset(irecv_client_t client);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_close(irecv_client_t client);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_receive(irecv_client_t client);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_send_exploit(irecv_client_t client);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_execute_script(irecv_client_t client, const char* filename);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_set_configuration(irecv_client_t client, int configuration);
 
-irecv_error_t irecv_event_subscribe(irecv_client_t client, irecv_event_type type, irecv_event_cb_t callback, void *user_data);
-irecv_error_t irecv_event_unsubscribe(irecv_client_t client, irecv_event_type type);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_event_subscribe(irecv_client_t client, irecv_event_type type, irecv_event_cb_t callback, void *user_data);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_event_unsubscribe(irecv_client_t client, irecv_event_type type);
 
-irecv_error_t irecv_send_file(irecv_client_t client, const char* filename, int dfuNotifyFinished);
-irecv_error_t irecv_send_command(irecv_client_t client, const char* command);
-irecv_error_t irecv_send_buffer(irecv_client_t client, unsigned char* buffer, unsigned long length, int dfuNotifyFinished);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_send_file(irecv_client_t client, const char* filename, int dfuNotifyFinished);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_send_command(irecv_client_t client, const char* command);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_send_buffer(irecv_client_t client, unsigned char* buffer, unsigned long length, int dfuNotifyFinished);
 
-irecv_error_t irecv_saveenv(irecv_client_t client);
-irecv_error_t irecv_getret(irecv_client_t client, unsigned int* value);
-irecv_error_t irecv_getenv(irecv_client_t client, const char* variable, char** value);
-irecv_error_t irecv_setenv(irecv_client_t client, const char* variable, const char* value);
-irecv_error_t irecv_set_interface(irecv_client_t client, int interface, int alt_interface);
-irecv_error_t irecv_get_cpid(irecv_client_t client, unsigned int* cpid);
-irecv_error_t irecv_get_bdid(irecv_client_t client, unsigned int* bdid);
-irecv_error_t irecv_get_ecid(irecv_client_t client, unsigned long long* ecid);
-void irecv_hexdump(unsigned char* buf, unsigned int len, unsigned int addr);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_saveenv(irecv_client_t client);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_getret(irecv_client_t client, unsigned int* value);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_getenv(irecv_client_t client, const char* variable, char** value);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_setenv(irecv_client_t client, const char* variable, const char* value);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_set_interface(irecv_client_t client, int interface, int alt_interface);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_get_cpid(irecv_client_t client, unsigned int* cpid);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_get_bdid(irecv_client_t client, unsigned int* bdid);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_get_ecid(irecv_client_t client, unsigned long long* ecid);
+void LIBIRECOVERY_EXPORT irecv_hexdump(unsigned char* buf, unsigned int len, unsigned int addr);
 
-void irecv_init();
-void irecv_exit();
-irecv_client_t irecv_reconnect(irecv_client_t client, int initial_pause);
-irecv_error_t irecv_reset_counters(irecv_client_t client);
-irecv_error_t irecv_finish_transfer(irecv_client_t client);
-irecv_error_t irecv_recv_buffer(irecv_client_t client, char* buffer, unsigned long length);
-irecv_error_t irecv_get_device(irecv_client_t client, irecv_device_t* device);
+void LIBIRECOVERY_EXPORT irecv_init();
+void LIBIRECOVERY_EXPORT irecv_exit();
+irecv_client_t LIBIRECOVERY_EXPORT irecv_reconnect(irecv_client_t client, int initial_pause);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_reset_counters(irecv_client_t client);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_finish_transfer(irecv_client_t client);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_recv_buffer(irecv_client_t client, char* buffer, unsigned long length);
+irecv_error_t LIBIRECOVERY_EXPORT irecv_get_device(irecv_client_t client, irecv_device_t* device);
 
-int irecv_control_transfer( irecv_client_t client,
+int LIBIRECOVERY_EXPORT irecv_control_transfer( irecv_client_t client,
 							uint8_t bmRequestType,
 							uint8_t bRequest,
 							uint16_t wValue,

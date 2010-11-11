@@ -24,7 +24,13 @@
 extern "C" {
 #endif
 
+#ifdef SYRINGE_EXPORTS
+#define LIBIRECOVERY_EXPORTS
+#endif
+
 #include "libirecovery.h"
+
+#define SYRINGE_EXPORT LIBIRECOVERY_EXPORT
 
 #ifdef _WIN32
 #define sleep(n) Sleep(1000 * n)

@@ -29,9 +29,11 @@ all:
 	make -C tools
 	make -C exploits
 	$(CC) $(CFLAGS) -c libpois0n.c libirecovery.c libpartial.c common.c
-	$(AR) rs libpois0n.a libpois0n.o libirecovery.o libpartial.o common.o $(EXPLOITS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o injectpois0n injectpois0n.c libpois0n.a $(ADDOBJ)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o tetheredboot tetheredboot.c libpois0n.a $(ADDOBJ)	
+	$(AR) rs libirecovery.a libirecovery.o libpartial.o common.o
+	$(AR) rs libsyringe.a libpois0n.o libirecovery.a $(EXPLOITS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o injectpois0n injectpois0n.c libsyringe.a $(ADDOBJ)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o tetheredboot tetheredboot.c libsyringe.a $(ADDOBJ)	
+	$(CC) $(CFLAGS) $(LDFLAGS) -o loadibec loadibec.c libirecovery.a $(ADDOBJ)	
 		
 clean:
 	make clean -C tools
