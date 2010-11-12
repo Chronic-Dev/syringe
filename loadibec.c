@@ -70,6 +70,8 @@ int main(int argc, char* argv[]) {
 	irecv_error_t error;
 	int i;
 
+	irecv_init();
+
 	for(i = 0; i < CONNECT_ATTEMPTS; i++)
 	{
 		error = irecv_open(&client);
@@ -100,6 +102,8 @@ int main(int argc, char* argv[]) {
 		fprintf(stderr, "Failed to jump to uploaded file, error %d.\n", error);
 		return 3;
 	}
+
+	irecv_exit();
 
 	return 0;
 }
