@@ -21,9 +21,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "libirecovery.h"
+#include "libpois0n.h"
 
 #define CONNECT_ATTEMPTS 30
-#define CONNECT_SLEEP 1000
+#define CONNECT_SLEEP 1
 
 void print_progress(double progress) {
 	int i = 0;
@@ -66,12 +67,15 @@ int main(int argc, char* argv[]) {
 		return 0;
 	}
 
-	irecv_client_t client;
+	//irecv_client_t client;
 	irecv_error_t error;
 	int i;
+	unsigned int cpid;
+	int can_ra1n = 0;
 
 	irecv_init();
 
+reconnect:
 	for(i = 0; i < CONNECT_ATTEMPTS; i++)
 	{
 		error = irecv_open(&client);
@@ -87,6 +91,21 @@ int main(int argc, char* argv[]) {
 		return -error;
 	}
 	
+	if(!can_ra1n)
+	{
+		if(irecv_get_cpid(client, &cpid) == IRECV_E_SUCCESS)
+		{
+			if(cpid > 8900)
+				can_ra1n = 1;
+		}
+
+		if(client->mode == kDfuMode && can_ra1n)
+		{
+			pois0n_inject();
+			goto reconnect;
+		}
+	}
+
 	irecv_event_subscribe(client, IRECV_PROGRESS, &progress_cb, NULL);
 	
 	error = irecv_send_file(client, argv[1], 0);
