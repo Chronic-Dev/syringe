@@ -24,13 +24,17 @@
 extern "C" {
 #endif
 
-#ifdef SYRINGE_EXPORTS
-#define LIBIRECOVERY_EXPORTS
+#ifdef _WIN32
+#	ifdef LIBSYRINGE_EXPORTS
+#		define LIBSYRINGE_EXPORT __declspec(dllexport)
+#	else
+#		define LIBSYRINGE_EXPORT __declspec(dllimport)
+#	endif
+#else
+#	define LIBSYRINGE_EXPORT extern __attribute__((visibility("default")))
 #endif
 
 #include "libirecovery.h"
-
-#define SYRINGE_EXPORT LIBIRECOVERY_EXPORT
 
 #ifdef _WIN32
 #define sleep(n) Sleep(1000 * n)
@@ -44,9 +48,9 @@ extern "C" {
 #define error(...) fprintf(stderr, __VA_ARGS__)
 #define debug(...) if(libpois0n_debug) fprintf(stderr, __VA_ARGS__)
 
-extern int libpois0n_debug;
-extern irecv_client_t client;
-extern irecv_device_t device;
+LIBSYRINGE_EXPORT int libpois0n_debug;
+LIBSYRINGE_EXPORT irecv_client_t client;
+LIBSYRINGE_EXPORT irecv_device_t device;
 
 #ifdef __cplusplus
 }

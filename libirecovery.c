@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include "common.h"
+//#include "common.h"
 
 #ifndef _WIN32
 #include <libusb-1.0/libusb.h>
@@ -46,6 +46,8 @@ static libusb_context* libirecovery_context = NULL;
 	
 int irecv_write_file(const char* filename, const void* data, size_t size);
 int irecv_read_file(const char* filename, char** data, uint32_t* size);
+
+#define debug(x...) if(libirecovery_debug) { fprintf(stderr, x); };
 
 #ifdef _WIN32
 static const GUID GUID_DEVINTERFACE_IBOOT = {0xED82A167L, 0xD61A, 0x4AF6, {0x9A, 0xB6, 0x11, 0xE5, 0x22, 0x36, 0xC5, 0x76}};

@@ -6,53 +6,57 @@ ARMAS = arm-elf-as
 OBJCOPY = arm-elf-objcopy
 BIN2C = bin2c
 ADDOBJ = ""
-
-EXPLOITS_TARGET = exploits.a
-EXPLOITS_DEPENDENCIES = 
-
-POIS0N_TARGET = libpois0n.a
-POIS0N_DEPENDENCIES = $(EXPLOITS_TARGET)
-
-SYRINGE_TARGET = syringe
-SYRINGE_DEPENDENCIES = $(POIS0N_TARGET)
-
-TARGETS = $(EXPLOITS_TARGET) $(POIS0N_TARGET) $(SYRINGE_TARGET)
+LDFLAGS = -L.
 
 UNAME := $(shell uname -s)
 ifeq ($(UNAME),Darwin)
 	CFLAGS = -I./include -I./resources -I/usr/local/include -I/opt/local/include
-	LDFLAGS = -L/usr/lib -L/opt/local/lib -lusb-1.0 -lcurl -lz -framework CoreFoundation -framework IOKit
+	LDFLAGS += -L/usr/lib -L/opt/local/lib -lusb-1.0 -lcurl -lz -framework CoreFoundation -framework IOKit
 	ADDOBJ = 
 else
 	ifeq ($(UNAME),MINGW32_NT-5.1)
 		CFLAGS = -O3 -I./resources -DCURL_STATICLIB
-		LDFLAGS = -lcurl -lz
+		LDFLAGS += -lcurl -lz
 		ADDOBJ = /mingw/lib/libcurl.a /mingw/lib/libwsock32.a /mingw/lib/libwldap32.a /mingw/lib/libpenwin32.a /mingw/lib/libz.a /mingw/lib/libsetupapi.a
 	else
 		CFLAGS = -O3 -I./resources -I./include
-		LDFLAGS = -lusb-1.0 -lcurl -lz
+		LDFLAGS += -lusb-1.0 -lcurl -lz
 		ADDOBJ = 
 	endif
 endif
 
-$(EXPLOITS_TARGET):
-	$(MAKE) -C exploits
+all: loadibec tetheredboot injectpois0n
 
-$(POIS0N_TARGET): $(POIS0N_OBJECTS)
+LIBIRECOVERY_LIBS = libirecovery.a
+LIBSYRINGE_LIBS = libsyringe.a exploits/exploits.a $(LIBIRECOVERY_LIBS)
 
-$(SYRINGE_TARGET): $(SYRINGE_OBJECTS)
+force:
+	true
 
-all: $(TARGETS)
-	make -C tools
-	make -C exploits
-	$(CC) $(CFLAGS) -c libpois0n.c libirecovery.c libpartial.c common.c
-	$(AR) rs libirecovery.a libirecovery.o libpartial.o common.o
-	$(AR) rs libsyringe.a libpois0n.o libirecovery.a $(EXPLOITS_TARGET)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o injectpois0n injectpois0n.c libsyringe.a $(ADDOBJ)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o tetheredboot tetheredboot.c libsyringe.a $(ADDOBJ)	
-	$(CC) $(CFLAGS) $(LDFLAGS) -o loadibec loadibec.c libirecovery.a $(ADDOBJ)	
+exploits/exploits.a: force
+	cd exploits && $(MAKE)
+
+tools: force
+	cd tools && $(MAKE)
+
+libirecovery.a: libirecovery.c tools
+	$(CC) $(CFLAGS) -DLIBIRECOVERY_EXPORTS -static -shared -c $<
+	$(AR) rs $@ $(patsubst %.c, %.o, $<)
+
+libsyringe.a: libpois0n.c libpartial.c common.c libirecovery.a
+	$(CC) $(CFLAGS) -DLIBSYRINGE_EXPORTS -static -shared -c $^
+	$(AR) rs $@ $(patsubst %.c, %.o, $(filter %.c, $^))
+
+loadibec: loadibec.c $(LIBSYRINGE_LIBS) $(ADDOBJ)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
+
+tetheredboot: tetheredboot.c $(LIBSYRINGE_LIBS) $(ADDOBJ)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
+
+injectpois0n: injectpois0n.c $(LIBSYRINGE_LIBS) $(ADDOBJ)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 		
 clean:
 	make clean -C tools
 	make clean -C exploits
-	rm -rf *.o libpois0n.a injectpois0n tetheredboot
+	rm -rf *.so *.o *.a injectpois0n tetheredboot loadibec

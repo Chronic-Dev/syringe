@@ -97,7 +97,7 @@ int main(int argc, char* argv[]) {
 	error = irecv_send_command(client, "go");
 	if(error != IRECV_E_SUCCESS)
 	{
-		fprintf(stderr, "Failed to jump to uploaded file, error %d.\n", argv[1], error);
+		fprintf(stderr, "Failed to jump to uploaded file, error %d.\n", error);
 		return 3;
 	}
 
