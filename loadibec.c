@@ -23,6 +23,15 @@
 #include "libirecovery.h"
 #include "libpois0n.h"
 
+#ifdef COMMIT
+#define STRINGIFY(x) #x
+#define XSTRINGIFY(x) STRINGIFY(x)
+#define COMMIT_STRING " (" XSTRINGIFY(COMMIT) ")"
+#else
+#define COMMIT_STRING ""
+#endif
+
+#define LOADIBEC_VERSION "2.00"
 #define CONNECT_ATTEMPTS 30
 #define CONNECT_SLEEP 1
 
@@ -59,11 +68,13 @@ int progress_cb(irecv_client_t client, const irecv_event_t* event) {
 }
 
 int main(int argc, char* argv[]) {
+
+	printf("Loadibec " LOADIBEC_VERSION COMMIT_STRING ".\n");
+
 	if(argc != 2)
 	{
 		printf("Usage: %s <file>\n"
-			"\n"
-			"\tLoads a file to a device in recovery mode and jumps to it.\n", argv[0]);
+			"\tLoads a file to an iDevice in recovery mode and jumps to it.\n", argv[0]);
 		return 0;
 	}
 
@@ -74,6 +85,8 @@ int main(int argc, char* argv[]) {
 	int can_ra1n = 0;
 
 	irecv_init();
+
+	printf("Connecting to iDevice...\n");
 
 reconnect:
 	for(i = 0; i < CONNECT_ATTEMPTS; i++)
@@ -101,10 +114,13 @@ reconnect:
 
 		if(client->mode == kDfuMode && can_ra1n)
 		{
+			printf("linera1n compatible device detected, injecting limera1n.\n");
 			pois0n_inject();
 			goto reconnect;
 		}
 	}
+
+	printf("Starting transfer of '%s'.\n", argv[1]);
 
 	irecv_event_subscribe(client, IRECV_PROGRESS, &progress_cb, NULL);
 	
@@ -121,6 +137,8 @@ reconnect:
 		fprintf(stderr, "Failed to jump to uploaded file, error %d.\n", error);
 		return 3;
 	}
+
+	printf("Uploaded Successfully.\n");
 
 	irecv_exit();
 

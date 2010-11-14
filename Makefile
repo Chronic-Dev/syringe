@@ -5,23 +5,23 @@ ARMCC = arm-elf-gcc
 ARMAS = arm-elf-as
 OBJCOPY = arm-elf-objcopy
 BIN2C = bin2c
-ADDOBJ = ""
+ADDOBJ = 
 LDFLAGS = -L.
+GIT_COMMIT = $(shell git log | head -n1 | cut -b8-14)
+CFLAGS = -DCOMMIT="$(GIT_COMMIT)"
 
 UNAME := $(shell uname -s)
 ifeq ($(UNAME),Darwin)
-	CFLAGS = -I./include -I./resources -I/usr/local/include -I/opt/local/include
+	CFLAGS += -I./include -I./resources -I/usr/local/include -I/opt/local/include
 	LDFLAGS += -L/usr/lib -L/opt/local/lib -lusb-1.0 -lcurl -lz -framework CoreFoundation -framework IOKit
-	ADDOBJ = 
 else
 	ifeq ($(UNAME),MINGW32_NT-5.1)
-		CFLAGS = -O3 -I./resources -DCURL_STATICLIB
+		CFLAGS += -O3 -I./resources -DCURL_STATICLIB
 		LDFLAGS += -lcurl -lz
-		ADDOBJ = /mingw/lib/libcurl.a /mingw/lib/libwsock32.a /mingw/lib/libwldap32.a /mingw/lib/libpenwin32.a /mingw/lib/libz.a /mingw/lib/libsetupapi.a
+		ADDOBJ += /mingw/lib/libcurl.a /mingw/lib/libwsock32.a /mingw/lib/libwldap32.a /mingw/lib/libpenwin32.a /mingw/lib/libz.a /mingw/lib/libsetupapi.a
 	else
-		CFLAGS = -O3 -I./resources -I./include
+		CFLAGS += -O3 -I./resources -I./include
 		LDFLAGS += -lusb-1.0 -lcurl -lz
-		ADDOBJ = 
 	endif
 endif
 
@@ -37,7 +37,7 @@ exploits/exploits.a: force
 	cd exploits && $(MAKE)
 
 tools: force
-	cd tools && $(MAKE)
+	$(MAKE) -C tools
 
 libirecovery.a: libirecovery.c tools
 	$(CC) $(CFLAGS) -DLIBIRECOVERY_EXPORTS -static -shared -c $<
