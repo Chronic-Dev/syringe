@@ -32,8 +32,6 @@
 #endif
 
 #define LOADIBEC_VERSION "2.00"
-#define CONNECT_ATTEMPTS 30
-#define CONNECT_SLEEP 1
 
 void print_progress(double progress) {
 	int i = 0;
@@ -88,35 +86,34 @@ int main(int argc, char* argv[]) {
 
 	printf("Connecting to iDevice...\n");
 
-reconnect:
-	for(i = 0; i < CONNECT_ATTEMPTS; i++)
-	{
-		error = irecv_open(&client);
-		if(error == IRECV_E_SUCCESS)
-			break;
-
-		sleep(CONNECT_SLEEP);
-	}
-
-	if(i == CONNECT_ATTEMPTS)
+	error = irecv_open_attempts(&client, 10);
+	if(error != IRECV_E_SUCCESS)
 	{
 		fprintf(stderr, "Failed to connect to iBoot, error %d.\n", error);
 		return -error;
 	}
 	
-	if(!can_ra1n)
+	if(irecv_get_cpid(client, &cpid) == IRECV_E_SUCCESS)
 	{
-		if(irecv_get_cpid(client, &cpid) == IRECV_E_SUCCESS)
-		{
-			if(cpid > 8900)
-				can_ra1n = 1;
-		}
+		if(cpid > 8900)
+			can_ra1n = 1;
+	}
 
-		if(client->mode == kDfuMode && can_ra1n)
+	if(client->mode == kDfuMode && can_ra1n)
+	{
+		printf("linera1n compatible device detected, injecting limera1n.\n");
+		pois0n_inject();
+
+		irecv_close(client);
+		client = NULL;
+
+		printf("limera1ned, reconnecting...\n");
+
+		client = irecv_reconnect(client, 10);
+		if(!client)
 		{
-			printf("linera1n compatible device detected, injecting limera1n.\n");
-			pois0n_inject();
-			goto reconnect;
+			fprintf(stderr, "Failed to reconnect.\n");
+			return 4;
 		}
 	}
 
