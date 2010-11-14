@@ -102,6 +102,19 @@ int main(int argc, char* argv[]) {
 	if(client->mode == kDfuMode && can_ra1n)
 	{
 		printf("linera1n compatible device detected, injecting limera1n.\n");
+		irecv_close(client);
+		irecv_exit();
+
+		pois0n_init();
+
+		int ret = pois0n_is_ready();
+		if(ret < 0)
+			return ret;
+
+		ret = pois0n_is_compatible();
+		if(ret < 0)
+			return ret;
+
 		pois0n_inject();
 
 		irecv_close(client);
@@ -116,6 +129,8 @@ int main(int argc, char* argv[]) {
 			return 4;
 		}
 	}
+	else
+		can_ra1n = 0;
 
 	printf("Starting transfer of '%s'.\n", argv[1]);
 
@@ -134,6 +149,8 @@ int main(int argc, char* argv[]) {
 		fprintf(stderr, "Failed to jump to uploaded file, error %d.\n", error);
 		return 3;
 	}
+	
+	irecv_send_command(client, "go jmp 0x41000000");
 
 	printf("Uploaded Successfully.\n");
 
