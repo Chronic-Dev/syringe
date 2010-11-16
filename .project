@@ -3,6 +3,7 @@
 	<name>syringe</name>
 	<comment></comment>
 	<projects>
+		<project>irecovery</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
