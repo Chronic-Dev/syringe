@@ -90,21 +90,21 @@ int main(int argc, char* argv[]) {
 			break;
 		case 'i':
 			if (!file_exists(optarg)) {
-				error("Cannot open iBSS file '%s'", optarg);
+				error("Cannot open iBSS file '%s'\n", optarg);
 				return -1;
 			}
 			ibssFile = optarg;
 			break;
 		case 'k':
 			if (!file_exists(optarg)) {
-				error("Cannot open kernelcache file '%s'", optarg);
+				error("Cannot open kernelcache file '%s'\n", optarg);
 				return -1;
 			}
 			kernelcacheFile = optarg;
 			break;
 		case 'r':
 			if (!file_exists(optarg)) {
-				error("Cannot open ramdisk file '%s'", optarg);
+				error("Cannot open ramdisk file '%s'\n", optarg);
 				return -1;
 			}
 			ramdiskFile = optarg;
