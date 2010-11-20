@@ -238,6 +238,7 @@
     <ClInclude Include="Win32\getopt.h" />
     <ClInclude Include="Win32\inttypes.h" />
     <ClInclude Include="Win32\libgen.h" />
+    <ClInclude Include="Win32\stdbool.h" />
     <ClInclude Include="Win32\unistd.h" />
   </ItemGroup>
   <ItemGroup>

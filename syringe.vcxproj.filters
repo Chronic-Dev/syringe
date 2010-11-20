@@ -86,6 +86,9 @@
     <ClInclude Include="Win32\getopt.h">
       <Filter>Header Files\Missing Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Win32\stdbool.h">
+      <Filter>Header Files\Missing Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="syringe.def">

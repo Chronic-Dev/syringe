@@ -22,12 +22,12 @@
 #include <stdlib.h>
 #include <getopt.h>
 #include <sys/stat.h>
+#include <stdbool.h>
 
-#include "common.h"
 #include "libpois0n.h"
 
 
-BOOL file_exists(const char* fileName)
+bool file_exists(const char* fileName)
 {
    struct stat buf;
    return !stat(fileName, &buf);
@@ -64,7 +64,7 @@ void usage()
 	exit(0);
 }
 
-BOOL g_verbose = FALSE;
+bool g_verbose = false;
 
 int main(int argc, char* argv[]) {
 	int result = 0;
@@ -83,7 +83,7 @@ int main(int argc, char* argv[]) {
 		switch (c)
 	{
 		case 'v':
-			g_verbose = TRUE;
+			g_verbose = true;
 			break;
 		case 'h':
 			usage();
