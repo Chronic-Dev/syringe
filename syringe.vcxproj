@@ -225,6 +225,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Dll-Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Win32\getopt.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />
@@ -234,6 +235,7 @@
     <ClInclude Include="libpois0n.h" />
     <ClInclude Include="payloads.h" />
     <ClInclude Include="resources\ramdisk.h" />
+    <ClInclude Include="Win32\getopt.h" />
     <ClInclude Include="Win32\inttypes.h" />
     <ClInclude Include="Win32\libgen.h" />
     <ClInclude Include="Win32\unistd.h" />
