@@ -21,12 +21,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <getopt.h>
-
-#include "libpois0n.h"
-
 #include <sys/stat.h>
 
-bool file_exists(const char* fileName)
+#include "common.h"
+#include "libpois0n.h"
+
+
+BOOL file_exists(const char* fileName)
 {
    struct stat buf;
    return !stat(fileName, &buf);
@@ -63,7 +64,7 @@ void usage()
 	exit(0);
 }
 
-bool g_verbose = false;
+BOOL g_verbose = FALSE;
 
 int main(int argc, char* argv[]) {
 	int result = 0;
@@ -82,7 +83,7 @@ int main(int argc, char* argv[]) {
 		switch (c)
 	{
 		case 'v':
-			g_verbose = true;
+			g_verbose = TRUE;
 			break;
 		case 'h':
 			usage();
