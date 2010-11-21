@@ -150,7 +150,7 @@ int main(int argc, char* argv[]) {
 		return 3;
 	}
 	
-	irecv_send_command(client, "go jmp 0x41000000");
+	irecv_send_command(client, "go jump 0x41000000");
 
 	printf("Uploaded Successfully.\n");
 
