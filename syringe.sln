@@ -7,6 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "syringe", "syringe.vcxproj"
 		{82F65A9E-40B4-4585-9FDF-B8790302D9AC} = {82F65A9E-40B4-4585-9FDF-B8790302D9AC}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "loadibec", "loadibec.vcxproj", "{EAE14B87-6CE5-4147-932F-AAF5426AB85A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942} = {8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}
+	EndProjectSection
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "curl", "_dependencies\curl\curl.vcxproj", "{82F65A9E-40B4-4585-9FDF-B8790302D9AC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "_dependencies\zlib\zlib.vcxproj", "{3EAB100F-D679-4536-AD59-382EDE1E927C}"

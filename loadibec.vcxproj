@@ -27,12 +27,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{EAE14B87-6CE5-4147-932F-AAF5426AB859}</ProjectGuid>
+    <ProjectGuid>{EAE14B87-6CE5-4147-932F-AAF5426AB85A}</ProjectGuid>
     <RootNamespace>syringe</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -99,16 +99,14 @@
       <AdditionalIncludeDirectories>./resources;./Win32;$(SolutionDir)\_dependencies\curl\include;$(SolutionDir)\_dependencies\zlib;$(ProjectDir)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <CompileAs>CompileAsCpp</CompileAs>
-      <PreprocessorDefinitions>LIBIRECOVERY_EXPORTS;CURL_STATICLIB=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CURL_STATICLIB=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;curl.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>syringe.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(TargetDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
-      <ImportLibrary>
-      </ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dll-Debug|Win32'">
@@ -211,27 +209,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="common.c" />
-    <ClCompile Include="exploits\limera1n\limera1n.c" />
-    <ClCompile Include="exploits\steaks4uce\steaks4uce.c" />
-    <ClCompile Include="libirecovery.c" />
-    <ClCompile Include="libpartial.c" />
-    <ClCompile Include="libpois0n.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="common.h" />
-    <ClInclude Include="exploits.h" />
-    <ClInclude Include="libirecovery.h" />
-    <ClInclude Include="libpartial.h" />
-    <ClInclude Include="libpois0n.h" />
-    <ClInclude Include="payloads.h" />
-    <ClInclude Include="resources\ramdisk.h" />
-    <ClInclude Include="Win32\inttypes.h" />
-    <ClInclude Include="Win32\libgen.h" />
-    <ClInclude Include="Win32\unistd.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="syringe.def" />
+    <ClCompile Include="loadibec.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

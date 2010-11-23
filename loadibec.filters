@@ -24,6 +24,9 @@
     <ClCompile Include="common.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="injectpois0n.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="libirecovery.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -35,6 +38,9 @@
     </ClCompile>
     <ClCompile Include="exploits\steaks4uce\steaks4uce.c">
       <Filter>Source Files\exploits</Filter>
+    </ClCompile>
+    <ClCompile Include="tetheredboot.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="libpois0n.c">
       <Filter>Source Files</Filter>
