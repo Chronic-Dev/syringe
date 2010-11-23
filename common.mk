@@ -1,5 +1,3 @@
-
-
 UNAME := $(shell uname -s)
 ifeq ($(UNAME),Darwin)
 	OS_SHARED_EXT = .dylib

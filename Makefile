@@ -1,21 +1,21 @@
-<<<<<<< HEAD
-=======
-include Makefile.common
+# /Makefile
 
-all:
-ifdef ERROR
-	$(error $(ERROR))
-endif
+LIBPOIS0N_NAME = libpois0n
+LIBPOIS0N_TARGET = libpois0n.a
+LIBPOIS0N_DIRECTORY = syringe
 
-	make -C tools
-	make -C exploits
-	$(CC) $(CFLAGS) -c libpois0n.c libirecovery.c libpartial.c common.c
-	$(AR_RS) libpois0n.a libpois0n.o libirecovery.o libpartial.o common.o $(EXPLOITS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o injectpois0n injectpois0n.c libpois0n.a $(ADDOBJ)
-	$(CC) $(CFLAGS) $(LDFLAGS_STATIC) -o tetheredboot tetheredboot.c libpois0n.a $(ADDOBJ)	
-		
+UTILITIES_TARGETS = injectpois0n tetheredboot
+
+TARGETS = $(LIBPOIS0N_TARGET)# $(UTILITIES_TARGETS)
+
+.PHONY $(LIBPOIS0N_TARGET):
+$(LIBPOIS0N_TARGET):
+	$(MAKE) $(@) -C $(LIBPOIS0N_DIRECTORY)
+	$(CP) $(LIBPOIS0N_DIRECTORY)/$(@) $(@)
+
+$(UTILITIES_TARGETS): $(LIBPOIS0N_TARGETS)
+
+all: $(TARGETS)
+
 clean:
-	make clean -C tools
-	make clean -C exploits
-	rm -rf *.o libpois0n.a injectpois0n tetheredboot
->>>>>>> 4e5ff4592fac6882e34c4bc97bcf83f4cdfe751c
+	$(RM) $(TARGETS)
