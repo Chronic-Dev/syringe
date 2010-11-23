@@ -1,6 +1,8 @@
 /**
   * GreenPois0n Syringe - libpartial.c
-  * Copyright (C) 2010 Chronic-Dev Team
+  * Copyright (C) 2010 David Wang
+  *
+  * Modified by:
   * Copyright (C) 2010 Joshua Hill
   *
   * This program is free software: you can redistribute it and/or modify
