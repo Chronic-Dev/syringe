@@ -19,9 +19,15 @@
     <Filter Include="Source Files\exploits">
       <UniqueIdentifier>{20a46520-52ae-49f3-8c61-372bdb5db4e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Missing Sources">
+      <UniqueIdentifier>{9778fdeb-1c67-415a-a11c-fb4914b24b8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="injectpois0n.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="libirecovery.c">
@@ -30,14 +36,20 @@
     <ClCompile Include="libpartial.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="libpois0n.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="exploits\limera1n\limera1n.c">
       <Filter>Source Files\exploits</Filter>
     </ClCompile>
     <ClCompile Include="exploits\steaks4uce\steaks4uce.c">
       <Filter>Source Files\exploits</Filter>
     </ClCompile>
-    <ClCompile Include="libpois0n.c">
+    <ClCompile Include="tetheredboot.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32\getopt.c">
+      <Filter>Source Files\Missing Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +81,12 @@
       <Filter>Header Files\Missing Headers</Filter>
     </ClInclude>
     <ClInclude Include="Win32\libgen.h">
+      <Filter>Header Files\Missing Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32\getopt.h">
+      <Filter>Header Files\Missing Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32\stdbool.h">
       <Filter>Header Files\Missing Headers</Filter>
     </ClInclude>
   </ItemGroup>

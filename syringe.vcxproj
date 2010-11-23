@@ -32,7 +32,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -99,7 +99,7 @@
       <AdditionalIncludeDirectories>./resources;./Win32;$(SolutionDir)\_dependencies\curl\include;$(SolutionDir)\_dependencies\zlib;$(ProjectDir)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <CompileAs>CompileAsCpp</CompileAs>
-      <PreprocessorDefinitions>LIBIRECOVERY_EXPORTS;CURL_STATICLIB=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CURL_STATICLIB=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -107,8 +107,6 @@
       <AdditionalLibraryDirectories>$(TargetDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
-      <ImportLibrary>
-      </ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dll-Debug|Win32'">
@@ -214,9 +212,20 @@
     <ClCompile Include="common.c" />
     <ClCompile Include="exploits\limera1n\limera1n.c" />
     <ClCompile Include="exploits\steaks4uce\steaks4uce.c" />
+    <ClCompile Include="injectpois0n.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='tetheredboot-Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='tetheredboot-Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="libirecovery.c" />
     <ClCompile Include="libpartial.c" />
     <ClCompile Include="libpois0n.c" />
+    <ClCompile Include="tetheredboot.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Dll-Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Dll-Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Win32\getopt.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />
@@ -226,8 +235,10 @@
     <ClInclude Include="libpois0n.h" />
     <ClInclude Include="payloads.h" />
     <ClInclude Include="resources\ramdisk.h" />
+    <ClInclude Include="Win32\getopt.h" />
     <ClInclude Include="Win32\inttypes.h" />
     <ClInclude Include="Win32\libgen.h" />
+    <ClInclude Include="Win32\stdbool.h" />
     <ClInclude Include="Win32\unistd.h" />
   </ItemGroup>
   <ItemGroup>
