@@ -27,10 +27,14 @@
 #endif
 
 #ifdef _WIN32
-#	ifdef LIBSYRINGE_EXPORTS
-#		define LIBSYRINGE_EXPORT EXT_C __declspec(dllexport)
+#	ifdef LIBSYRINGE_DYNAMIC
+#		ifdef LIBSYRINGE_EXPORTS
+#			define LIBSYRINGE_EXPORT EXT_C __declspec(dllexport)
+#		else
+#			define LIBSYRINGE_EXPORT EXT_C __declspec(dllimport)
+#		endif
 #	else
-#		define LIBSYRINGE_EXPORT EXT_C __declspec(dllimport)
+#		define LIBSYRINGE_EXPORT EXT_C
 #	endif
 #else
 #	define LIBSYRINGE_EXPORT EXT_C __attribute__((visibility("default")))

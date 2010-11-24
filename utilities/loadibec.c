@@ -65,7 +65,11 @@ int progress_cb(irecv_client_t client, const irecv_event_t* event) {
 	return 0;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) 
+{
+	irecv_error_t error;
+	unsigned int cpid;
+	int can_ra1n = 0;
 
 	printf("Loadibec " LOADIBEC_VERSION COMMIT_STRING ".\n");
 
@@ -76,10 +80,6 @@ int main(int argc, char* argv[]) {
 		return 0;
 	}
 
-	//irecv_client_t client;
-	irecv_error_t error;
-	unsigned int cpid;
-	int can_ra1n = 0;
 
 	irecv_init();
 
@@ -100,13 +100,14 @@ int main(int argc, char* argv[]) {
 
 	if(client->mode == kDfuMode && can_ra1n)
 	{
+		int ret;
 		printf("linera1n compatible device detected, injecting limera1n.\n");
 		irecv_close(client);
 		irecv_exit();
 
 		pois0n_init();
 
-		int ret = pois0n_is_ready();
+		ret = pois0n_is_ready();
 		if(ret < 0)
 			return ret;
 

@@ -35,14 +35,28 @@ extern "C" {
 #define sleep(n) Sleep(1000 * n)
 #endif
 
+#ifdef __cplusplus
+#	define EXT_C extern "C"
+#else
+#	define EXT_C extern
+#endif
+
+#ifdef LIBSYRINGE_DYNAMIC
+#	define LIBIRECOVERY_DYNAMIC 1
+#endif
+
 #ifdef _WIN32
-#	ifdef LIBIRECOVERY_EXPORTS
-#		define LIBIRECOVERY_EXPORT __declspec(dllexport)
+#	ifdef LIBIRECOVERY_DYNAMIC
+#		ifdef LIBIRECOVERY_EXPORTS
+#			define LIBIRECOVERY_EXPORT EXT_C __declspec(dllexport)
+#		else
+#			define LIBIRECOVERY_EXPORT EXT_C __declspec(dllimport)
+#		endif
 #	else
-#		define LIBIRECOVERY_EXPORT __declspec(dllimport)
+#		define LIBIRECOVERY_EXPORT EXT_C
 #	endif
 #else
-#	define LIBIRECOVERY_EXPORT extern __attribute__((visibility("default")))
+#	define LIBIRECOVERY_EXPORT EXT_C __attribute__((visibility("default")))
 #endif
 
 #define APPLE_VENDOR_ID 0x05AC

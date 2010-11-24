@@ -26,9 +26,9 @@ ipch/*
 *.payload
 
 # Binaries (OS X, Unix)
-injectpois0n
-tetheredboot
-loadibec
+/injectpois0n
+/tetheredboot
+/loadibec
 .DS_Store
 
 # Misc
@@ -42,3 +42,7 @@ tetheredboot-Release/*
 Dll-Debug
 Dll-Release
 tools/bin2c.exe
+
+Debug-Dynlink
+ipch
+Release-Dynlink
