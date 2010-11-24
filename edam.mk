@@ -173,6 +173,10 @@ ASFLAGS		:= -f elf $(if $(DEBUGMODE),-g -dDEBUG,-dNDEBUG -O2) $(ASFLAGS)
 LDFLAGS		:= $(if $(PROFILEMODE),-pg) \
 	$(if $(or $(PROFILEMODE), $(DEBUGMODE)),,-Wl,-S) $(LDFLAGS)
 
+ifdef NOLINK
+	MKSTATICLIB = 1
+endif
+
 # setup options for shared/static libs
 CPPFLAGS	:= $(if $(or $(MKSHAREDLIB),$(MKSTATICLIB)),-fPIC) $(CPPFLAGS)
 LDFLAGS		:= $(if $(LINKSTATIC),-static) $(LDFLAGS)

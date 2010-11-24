@@ -14,6 +14,9 @@ SOURCES = \
 
 PREMADE_OBJECTS = exploits/limera1n.o exploits/steaks4uce.o
 
+LIBRARIES = usb-1.0 curl z
+LDFLAGS = -L/opt/local/lib
+
 TARGET = syringe
 
 include ../common.mk
