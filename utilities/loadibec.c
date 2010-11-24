@@ -78,7 +78,6 @@ int main(int argc, char* argv[]) {
 
 	//irecv_client_t client;
 	irecv_error_t error;
-	int i;
 	unsigned int cpid;
 	int can_ra1n = 0;
 

@@ -27,15 +27,15 @@ extern "C" {
 #include "common.h"
 
 typedef void(*pois0n_callback)(double progress, void* object);
-
-void LIBSYRINGE_EXPORT pois0n_init();
-void LIBSYRINGE_EXPORT pois0n_set_callback(pois0n_callback callback, void* object);
-int LIBSYRINGE_EXPORT pois0n_is_ready();
-int LIBSYRINGE_EXPORT pois0n_is_compatible();
-int LIBSYRINGE_EXPORT pois0n_inject();
-int LIBSYRINGE_EXPORT pois0n_injectonly();
-void LIBSYRINGE_EXPORT pois0n_exit();
-int LIBSYRINGE_EXPORT boot_iboot();
+	
+LIBSYRINGE_EXPORT void pois0n_init();
+LIBSYRINGE_EXPORT void pois0n_set_callback(pois0n_callback callback, void* object);
+LIBSYRINGE_EXPORT int pois0n_is_ready();
+LIBSYRINGE_EXPORT int pois0n_is_compatible();
+LIBSYRINGE_EXPORT int pois0n_inject();
+LIBSYRINGE_EXPORT int pois0n_injectonly();
+LIBSYRINGE_EXPORT void pois0n_exit();
+LIBSYRINGE_EXPORT int boot_iboot();
 
 #ifdef __cplusplus
 }
