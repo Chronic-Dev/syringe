@@ -179,7 +179,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	if (bootlogo != NULL) {
-	    debug("Uploading %s to device\n", bootlogo);
+	        debug("Uploading %s to device\n", bootlogo);
 		ir_error = irecv_send_file(client, bootlogo, 1);
 		if(ir_error != IRECV_E_SUCCESS) {
 			error("Unable to upload bootlogo\n");
