@@ -1,4 +1,4 @@
-/**
+
 * GreenPois0n Syringe - injectpois0n.c
 * Copyright (C) 2010 Chronic-Dev Team
 * Copyright (C) 2010 Joshua Hill
