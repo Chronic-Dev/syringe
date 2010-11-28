@@ -196,7 +196,8 @@ int main(int argc, char* argv[]) {
                 ir_error = irecv_send_command(client, "bgcolor 0 0 0");
 		if(ir_error != IRECV_E_SUCCESS) {
 			error("Unable to set bgcolor\n");
-		
+                        return -1;
+                }
 	}
 
 	if (bgcolor != NULL) {
