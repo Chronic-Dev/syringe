@@ -194,7 +194,7 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
-		if (bgcolor != NULL) {
+	if (bgcolor != NULL) {
 		char finalbgcolor[255];
 		sprintf(finalbgcolor, "bgcolor %s", bgcolor);
 		ir_error = irecv_send_command(client, finalbgcolor);
