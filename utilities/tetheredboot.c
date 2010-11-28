@@ -178,37 +178,7 @@ int main(int argc, char* argv[]) {
 		}	
 	}
 
-	if (bootlogo != NULL) {
-	    debug("Uploading %s to device\n", bootlogo);
-		ir_error = irecv_send_file(client, bootlogo, 1);
-		if(ir_error != IRECV_E_SUCCESS) {
-			error("Unable to upload bootlogo\n");
-			debug("%s\n", irecv_strerror(ir_error));
-			return -1;
-		}
-
-		ir_error = irecv_send_command(client, "setpicture 1");
-		if(ir_error != IRECV_E_SUCCESS) {
-			error("Unable to set picture\n");
-			return -1;
-		}
-
-                ir_error = irecv_send_command(client, "bgcolor 0 0 0");
-		if(ir_error != IRECV_E_SUCCESS) {
-			error("Unable to set picture\n");
-                        return -1;
-                }
-	}
-
-	if (bgcolor != NULL) {
-		char finalbgcolor[255];
-		sprintf(finalbgcolor, "bgcolor %s", bgcolor);
-		ir_error = irecv_send_command(client, finalbgcolor);
-		if(ir_error != IRECV_E_SUCCESS) {
-			error("Unable set bgcolor\n");
-			return -1;
-		}
-	}
+	
 	
 	if (kernelcacheFile != NULL) {
 		debug("Uploading %s to device\n", kernelcacheFile);
