@@ -1,0 +1,395 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9D5B18E8129CA7530012E3D4 /* common.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B18CC129CA6F80012E3D4 /* common.c */; };
+		9D5B18E9129CA7550012E3D4 /* libirecovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B18CD129CA6F80012E3D4 /* libirecovery.c */; };
+		9D5B18EA129CA7560012E3D4 /* libpartial.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B18CE129CA6F80012E3D4 /* libpartial.c */; };
+		9D5B18EB129CA7560012E3D4 /* libpois0n.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B18CF129CA6F80012E3D4 /* libpois0n.c */; };
+		9D5B1900129CA84F0012E3D4 /* limera1n.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B18FF129CA84F0012E3D4 /* limera1n.c */; };
+		9D5B1902129CA85E0012E3D4 /* steaks4uce.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B1901129CA85E0012E3D4 /* steaks4uce.c */; };
+		9D5B197A129CAAEC0012E3D4 /* common.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5B1974129CAAEC0012E3D4 /* common.h */; };
+		9D5B197B129CAAEC0012E3D4 /* exploits.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5B1975129CAAEC0012E3D4 /* exploits.h */; };
+		9D5B197C129CAAEC0012E3D4 /* libirecovery.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5B1976129CAAEC0012E3D4 /* libirecovery.h */; };
+		9D5B197D129CAAEC0012E3D4 /* libpartial.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5B1977129CAAEC0012E3D4 /* libpartial.h */; };
+		9D5B197E129CAAEC0012E3D4 /* libpois0n.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5B1978129CAAEC0012E3D4 /* libpois0n.h */; };
+		9D5B197F129CAAEC0012E3D4 /* payloads.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5B1979129CAAEC0012E3D4 /* payloads.h */; };
+		9D5B19E2129CAF160012E3D4 /* steaks4uce.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B1901129CA85E0012E3D4 /* steaks4uce.c */; };
+		9D5B19E3129CAF1B0012E3D4 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D47FF211288ED9900F099E7 /* libcurl.dylib */; };
+		9D5B19E4129CAF1C0012E3D4 /* libusb-1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D47FF1A1288ED6A00F099E7 /* libusb-1.0.dylib */; };
+		9D5B19E5129CAF1D0012E3D4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D47FF271288EDC100F099E7 /* libz.dylib */; };
+		9D5B19E6129CAF1F0012E3D4 /* libpois0n.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B18CF129CA6F80012E3D4 /* libpois0n.c */; };
+		9D5B19E7129CAF200012E3D4 /* libpartial.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B18CE129CA6F80012E3D4 /* libpartial.c */; };
+		9D5B19E8129CAF200012E3D4 /* libirecovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B18CD129CA6F80012E3D4 /* libirecovery.c */; };
+		9D5B19E9129CAF200012E3D4 /* common.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B18CC129CA6F80012E3D4 /* common.c */; };
+		9D5B19EA129CAF200012E3D4 /* limera1n.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B18FF129CA84F0012E3D4 /* limera1n.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9D47FF1A1288ED6A00F099E7 /* libusb-1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.dylib"; path = "/opt/local/lib/libusb-1.0.dylib"; sourceTree = "<absolute>"; };
+		9D47FF211288ED9900F099E7 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
+		9D47FF271288EDC100F099E7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		9D5B18CC129CA6F80012E3D4 /* common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = common.c; path = ../syringe/common.c; sourceTree = SOURCE_ROOT; };
+		9D5B18CD129CA6F80012E3D4 /* libirecovery.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libirecovery.c; path = ../syringe/libirecovery.c; sourceTree = SOURCE_ROOT; };
+		9D5B18CE129CA6F80012E3D4 /* libpartial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libpartial.c; path = ../syringe/libpartial.c; sourceTree = SOURCE_ROOT; };
+		9D5B18CF129CA6F80012E3D4 /* libpois0n.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libpois0n.c; path = ../syringe/libpois0n.c; sourceTree = SOURCE_ROOT; };
+		9D5B18E5129CA74B0012E3D4 /* libsyringe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsyringe.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D5B18FF129CA84F0012E3D4 /* limera1n.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = limera1n.c; path = ../syringe/exploits/limera1n/limera1n.c; sourceTree = SOURCE_ROOT; };
+		9D5B1901129CA85E0012E3D4 /* steaks4uce.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = steaks4uce.c; path = ../syringe/exploits/steaks4uce/steaks4uce.c; sourceTree = SOURCE_ROOT; };
+		9D5B1974129CAAEC0012E3D4 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = ../include/common.h; sourceTree = SOURCE_ROOT; };
+		9D5B1975129CAAEC0012E3D4 /* exploits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = exploits.h; path = ../include/exploits.h; sourceTree = SOURCE_ROOT; };
+		9D5B1976129CAAEC0012E3D4 /* libirecovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libirecovery.h; path = ../include/libirecovery.h; sourceTree = SOURCE_ROOT; };
+		9D5B1977129CAAEC0012E3D4 /* libpartial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libpartial.h; path = ../include/libpartial.h; sourceTree = SOURCE_ROOT; };
+		9D5B1978129CAAEC0012E3D4 /* libpois0n.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libpois0n.h; path = ../include/libpois0n.h; sourceTree = SOURCE_ROOT; };
+		9D5B1979129CAAEC0012E3D4 /* payloads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = payloads.h; path = ../include/payloads.h; sourceTree = SOURCE_ROOT; };
+		9D5B19DC129CAF0B0012E3D4 /* libsyringe_dylib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsyringe_dylib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9D5B18E3129CA74B0012E3D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D5B19DA129CAF0B0012E3D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D5B19E3129CAF1B0012E3D4 /* libcurl.dylib in Frameworks */,
+				9D5B19E4129CAF1C0012E3D4 /* libusb-1.0.dylib in Frameworks */,
+				9D5B19E5129CAF1D0012E3D4 /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* syringe */ = {
+			isa = PBXGroup;
+			children = (
+				9D5B1973129CAADB0012E3D4 /* Headers */,
+				08FB7795FE84155DC02AAC07 /* Source */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+				9D47FF211288ED9900F099E7 /* libcurl.dylib */,
+				9D47FF1A1288ED6A00F099E7 /* libusb-1.0.dylib */,
+				9D47FF271288EDC100F099E7 /* libz.dylib */,
+			);
+			name = syringe;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9D5B18FE129CA83E0012E3D4 /* exploits */,
+				9D5B18CC129CA6F80012E3D4 /* common.c */,
+				9D5B18CD129CA6F80012E3D4 /* libirecovery.c */,
+				9D5B18CE129CA6F80012E3D4 /* libpartial.c */,
+				9D5B18CF129CA6F80012E3D4 /* libpois0n.c */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D5B18E5129CA74B0012E3D4 /* libsyringe.a */,
+				9D5B19DC129CAF0B0012E3D4 /* libsyringe_dylib.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D5B18FE129CA83E0012E3D4 /* exploits */ = {
+			isa = PBXGroup;
+			children = (
+				9D5B1901129CA85E0012E3D4 /* steaks4uce.c */,
+				9D5B18FF129CA84F0012E3D4 /* limera1n.c */,
+			);
+			name = exploits;
+			sourceTree = "<group>";
+		};
+		9D5B1973129CAADB0012E3D4 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9D5B1974129CAAEC0012E3D4 /* common.h */,
+				9D5B1975129CAAEC0012E3D4 /* exploits.h */,
+				9D5B1976129CAAEC0012E3D4 /* libirecovery.h */,
+				9D5B1977129CAAEC0012E3D4 /* libpartial.h */,
+				9D5B1978129CAAEC0012E3D4 /* libpois0n.h */,
+				9D5B1979129CAAEC0012E3D4 /* payloads.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9D5B18E1129CA74B0012E3D4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D5B197A129CAAEC0012E3D4 /* common.h in Headers */,
+				9D5B197B129CAAEC0012E3D4 /* exploits.h in Headers */,
+				9D5B197C129CAAEC0012E3D4 /* libirecovery.h in Headers */,
+				9D5B197D129CAAEC0012E3D4 /* libpartial.h in Headers */,
+				9D5B197E129CAAEC0012E3D4 /* libpois0n.h in Headers */,
+				9D5B197F129CAAEC0012E3D4 /* payloads.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D5B19D8129CAF0B0012E3D4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9D5B18E4129CA74B0012E3D4 /* syringe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D5B18F1129CA7950012E3D4 /* Build configuration list for PBXNativeTarget "syringe" */;
+			buildPhases = (
+				9D5B18E1129CA74B0012E3D4 /* Headers */,
+				9D5B18E2129CA74B0012E3D4 /* Sources */,
+				9D5B18E3129CA74B0012E3D4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = syringe;
+			productName = syringe;
+			productReference = 9D5B18E5129CA74B0012E3D4 /* libsyringe.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9D5B19DB129CAF0B0012E3D4 /* syringe_dylib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D5B19EE129CAF6A0012E3D4 /* Build configuration list for PBXNativeTarget "syringe_dylib" */;
+			buildPhases = (
+				9D5B19D8129CAF0B0012E3D4 /* Headers */,
+				9D5B19D9129CAF0B0012E3D4 /* Sources */,
+				9D5B19DA129CAF0B0012E3D4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = syringe_dylib;
+			productName = syringe_dylib;
+			productReference = 9D5B19DC129CAF0B0012E3D4 /* libsyringe_dylib.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "syringe" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* syringe */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9D5B18E4129CA74B0012E3D4 /* syringe */,
+				9D5B19DB129CAF0B0012E3D4 /* syringe_dylib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9D5B18E2129CA74B0012E3D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D5B18E8129CA7530012E3D4 /* common.c in Sources */,
+				9D5B18E9129CA7550012E3D4 /* libirecovery.c in Sources */,
+				9D5B18EA129CA7560012E3D4 /* libpartial.c in Sources */,
+				9D5B18EB129CA7560012E3D4 /* libpois0n.c in Sources */,
+				9D5B1900129CA84F0012E3D4 /* limera1n.c in Sources */,
+				9D5B1902129CA85E0012E3D4 /* steaks4uce.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D5B19D9129CAF0B0012E3D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D5B19E2129CAF160012E3D4 /* steaks4uce.c in Sources */,
+				9D5B19E6129CAF1F0012E3D4 /* libpois0n.c in Sources */,
+				9D5B19E7129CAF200012E3D4 /* libpartial.c in Sources */,
+				9D5B19E8129CAF200012E3D4 /* libirecovery.c in Sources */,
+				9D5B19E9129CAF200012E3D4 /* common.c in Sources */,
+				9D5B19EA129CAF200012E3D4 /* limera1n.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB928A08733DD80010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../include,
+					../include/resources,
+				);
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1DEB928B08733DD80010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../include,
+					../include/resources,
+				);
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9D5B18E6129CA74B0012E3D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = syringe;
+			};
+			name = Debug;
+		};
+		9D5B18E7129CA74B0012E3D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = syringe;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		9D5B19DD129CAF0C0012E3D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = syringe_dylib;
+			};
+			name = Debug;
+		};
+		9D5B19DE129CAF0C0012E3D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = syringe_dylib;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "syringe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB928A08733DD80010E9CD /* Debug */,
+				1DEB928B08733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D5B18F1129CA7950012E3D4 /* Build configuration list for PBXNativeTarget "syringe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D5B18E6129CA74B0012E3D4 /* Debug */,
+				9D5B18E7129CA74B0012E3D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D5B19EE129CAF6A0012E3D4 /* Build configuration list for PBXNativeTarget "syringe_dylib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D5B19DD129CAF0C0012E3D4 /* Debug */,
+				9D5B19DE129CAF0C0012E3D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

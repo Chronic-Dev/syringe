@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9D5B193B129CA9810012E3D4 /* injectpois0n.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B193A129CA9810012E3D4 /* injectpois0n.c */; };
+		9D5B194F129CA9C00012E3D4 /* loadibec.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B193D129CA98E0012E3D4 /* loadibec.c */; };
+		9D5B1950129CA9C40012E3D4 /* tetheredboot.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B193E129CA98E0012E3D4 /* tetheredboot.c */; };
+		9D5B19C4129CAEA80012E3D4 /* libsyringe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5B195B129CA9D70012E3D4 /* libsyringe.a */; };
+		9D5B19C5129CAEAB0012E3D4 /* libsyringe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5B195B129CA9D70012E3D4 /* libsyringe.a */; };
+		9D5B19CA129CAEC80012E3D4 /* libsyringe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5B195B129CA9D70012E3D4 /* libsyringe.a */; };
+		9DDA5E86129CB05E008AF000 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDA5E83129CB05E008AF000 /* libcurl.dylib */; };
+		9DDA5E87129CB05E008AF000 /* libusb-1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDA5E84129CB05E008AF000 /* libusb-1.0.dylib */; };
+		9DDA5E88129CB05E008AF000 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDA5E85129CB05E008AF000 /* libz.dylib */; };
+		9DDA5E89129CB05E008AF000 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDA5E83129CB05E008AF000 /* libcurl.dylib */; };
+		9DDA5E8A129CB05E008AF000 /* libusb-1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDA5E84129CB05E008AF000 /* libusb-1.0.dylib */; };
+		9DDA5E8B129CB05E008AF000 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDA5E85129CB05E008AF000 /* libz.dylib */; };
+		9DDA5E8C129CB05E008AF000 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDA5E83129CB05E008AF000 /* libcurl.dylib */; };
+		9DDA5E8D129CB05E008AF000 /* libusb-1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDA5E84129CB05E008AF000 /* libusb-1.0.dylib */; };
+		9DDA5E8E129CB05E008AF000 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDA5E85129CB05E008AF000 /* libz.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9D5B195A129CA9D70012E3D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D5B1953129CA9D70012E3D4 /* syringe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D5B18E5129CA74B0012E3D4;
+			remoteInfo = syringe;
+		};
+		9D5B19E0129CAF0C0012E3D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D5B1953129CA9D70012E3D4 /* syringe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D5B19DC129CAF0B0012E3D4;
+			remoteInfo = syringe_dylib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9D5B1936129CA96A0012E3D4 /* injectpois0n */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = injectpois0n; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D5B193A129CA9810012E3D4 /* injectpois0n.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = injectpois0n.c; path = ../utilities/injectpois0n.c; sourceTree = SOURCE_ROOT; };
+		9D5B193D129CA98E0012E3D4 /* loadibec.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = loadibec.c; path = ../utilities/loadibec.c; sourceTree = SOURCE_ROOT; };
+		9D5B193E129CA98E0012E3D4 /* tetheredboot.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = tetheredboot.c; path = ../utilities/tetheredboot.c; sourceTree = SOURCE_ROOT; };
+		9D5B1944129CA9A10012E3D4 /* loadibec */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = loadibec; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D5B194B129CA9B40012E3D4 /* tetheredboot */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tetheredboot; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D5B1953129CA9D70012E3D4 /* syringe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = syringe.xcodeproj; sourceTree = "<group>"; };
+		9DDA5E83129CB05E008AF000 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
+		9DDA5E84129CB05E008AF000 /* libusb-1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.dylib"; path = "/opt/local/lib/libusb-1.0.dylib"; sourceTree = "<absolute>"; };
+		9DDA5E85129CB05E008AF000 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9D5B1934129CA96A0012E3D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D5B19C4129CAEA80012E3D4 /* libsyringe.a in Frameworks */,
+				9DDA5E86129CB05E008AF000 /* libcurl.dylib in Frameworks */,
+				9DDA5E87129CB05E008AF000 /* libusb-1.0.dylib in Frameworks */,
+				9DDA5E88129CB05E008AF000 /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D5B1942129CA9A10012E3D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D5B19CA129CAEC80012E3D4 /* libsyringe.a in Frameworks */,
+				9DDA5E89129CB05E008AF000 /* libcurl.dylib in Frameworks */,
+				9DDA5E8A129CB05E008AF000 /* libusb-1.0.dylib in Frameworks */,
+				9DDA5E8B129CB05E008AF000 /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D5B1949129CA9B40012E3D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D5B19C5129CAEAB0012E3D4 /* libsyringe.a in Frameworks */,
+				9DDA5E8C129CB05E008AF000 /* libcurl.dylib in Frameworks */,
+				9DDA5E8D129CB05E008AF000 /* libusb-1.0.dylib in Frameworks */,
+				9DDA5E8E129CB05E008AF000 /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9D5B1953129CA9D70012E3D4 /* syringe.xcodeproj */,
+				08FB7795FE84155DC02AAC07 /* Source */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+				9DDA5E83129CB05E008AF000 /* libcurl.dylib */,
+				9DDA5E84129CB05E008AF000 /* libusb-1.0.dylib */,
+				9DDA5E85129CB05E008AF000 /* libz.dylib */,
+			);
+			name = utilities;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9D5B193D129CA98E0012E3D4 /* loadibec.c */,
+				9D5B193E129CA98E0012E3D4 /* tetheredboot.c */,
+				9D5B193A129CA9810012E3D4 /* injectpois0n.c */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D5B1936129CA96A0012E3D4 /* injectpois0n */,
+				9D5B1944129CA9A10012E3D4 /* loadibec */,
+				9D5B194B129CA9B40012E3D4 /* tetheredboot */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D5B1954129CA9D70012E3D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D5B195B129CA9D70012E3D4 /* libsyringe.a */,
+				9D5B19E1129CAF0C0012E3D4 /* libsyringe_dylib.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9D5B1935129CA96A0012E3D4 /* injectpois0n */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D5B193C129CA9820012E3D4 /* Build configuration list for PBXNativeTarget "injectpois0n" */;
+			buildPhases = (
+				9D5B1933129CA96A0012E3D4 /* Sources */,
+				9D5B1934129CA96A0012E3D4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = injectpois0n;
+			productName = injectpois0n;
+			productReference = 9D5B1936129CA96A0012E3D4 /* injectpois0n */;
+			productType = "com.apple.product-type.tool";
+		};
+		9D5B1943129CA9A10012E3D4 /* loadibec */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D5B195C129CA9D70012E3D4 /* Build configuration list for PBXNativeTarget "loadibec" */;
+			buildPhases = (
+				9D5B1941129CA9A10012E3D4 /* Sources */,
+				9D5B1942129CA9A10012E3D4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = loadibec;
+			productName = loadibec;
+			productReference = 9D5B1944129CA9A10012E3D4 /* loadibec */;
+			productType = "com.apple.product-type.tool";
+		};
+		9D5B194A129CA9B40012E3D4 /* tetheredboot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D5B195D129CA9D70012E3D4 /* Build configuration list for PBXNativeTarget "tetheredboot" */;
+			buildPhases = (
+				9D5B1948129CA9B40012E3D4 /* Sources */,
+				9D5B1949129CA9B40012E3D4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tetheredboot;
+			productName = tetheredboot;
+			productReference = 9D5B194B129CA9B40012E3D4 /* tetheredboot */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "utilities" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* utilities */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9D5B1954129CA9D70012E3D4 /* Products */;
+					ProjectRef = 9D5B1953129CA9D70012E3D4 /* syringe.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				9D5B1935129CA96A0012E3D4 /* injectpois0n */,
+				9D5B1943129CA9A10012E3D4 /* loadibec */,
+				9D5B194A129CA9B40012E3D4 /* tetheredboot */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9D5B195B129CA9D70012E3D4 /* libsyringe.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsyringe.a;
+			remoteRef = 9D5B195A129CA9D70012E3D4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D5B19E1129CAF0C0012E3D4 /* libsyringe_dylib.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libsyringe_dylib.dylib;
+			remoteRef = 9D5B19E0129CAF0C0012E3D4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9D5B1933129CA96A0012E3D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D5B193B129CA9810012E3D4 /* injectpois0n.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D5B1941129CA9A10012E3D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D5B194F129CA9C00012E3D4 /* loadibec.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D5B1948129CA9B40012E3D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D5B1950129CA9C40012E3D4 /* tetheredboot.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB928A08733DD80010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../include;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB928B08733DD80010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../include;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		9D5B1938129CA96B0012E3D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = injectpois0n;
+			};
+			name = Debug;
+		};
+		9D5B1939129CA96B0012E3D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = injectpois0n;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		9D5B1946129CA9A10012E3D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = loadibec;
+			};
+			name = Debug;
+		};
+		9D5B1947129CA9A10012E3D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = loadibec;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		9D5B194D129CA9B50012E3D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = tetheredboot;
+			};
+			name = Debug;
+		};
+		9D5B194E129CA9B50012E3D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = tetheredboot;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "utilities" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB928A08733DD80010E9CD /* Debug */,
+				1DEB928B08733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D5B193C129CA9820012E3D4 /* Build configuration list for PBXNativeTarget "injectpois0n" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D5B1938129CA96B0012E3D4 /* Debug */,
+				9D5B1939129CA96B0012E3D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D5B195C129CA9D70012E3D4 /* Build configuration list for PBXNativeTarget "loadibec" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D5B1946129CA9A10012E3D4 /* Debug */,
+				9D5B1947129CA9A10012E3D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D5B195D129CA9D70012E3D4 /* Build configuration list for PBXNativeTarget "tetheredboot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D5B194D129CA9B50012E3D4 /* Debug */,
+				9D5B194E129CA9B50012E3D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
