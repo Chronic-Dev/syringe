@@ -60,7 +60,7 @@ void print_progress(double progress, void* data) {
 
 void usage()
 {
-	printf("Usage: tetheredboot [-h]|[-v][-i <ibss> [-k <kernelcache>][-r <ramdisk>]]\n");
+	printf("Usage: tetheredboot -i <ibss> -k <kernelcache> [-r <ramdisk>] [-b <bgcolor>] [-l <bootlogo.img3>]\n");
 	exit(0);
 }
 
@@ -74,12 +74,14 @@ int main(int argc, char* argv[]) {
 	const char 
 		*ibssFile = NULL,
 		*kernelcacheFile = NULL,
-		*ramdiskFile = NULL;
+		*ramdiskFile = NULL,
+		*bgcolor = NULL,
+		*bootlogo = NULL;
 	int c;
 
 	opterr = 0;
 
-	while ((c = getopt (argc, argv, "vhi:k:r:")) != -1)
+	while ((c = getopt (argc, argv, "vhi:k:r:l:b:")) != -1)
 		switch (c)
 	{
 		case 'v':
@@ -108,6 +110,16 @@ int main(int argc, char* argv[]) {
 				return -1;
 			}
 			ramdiskFile = optarg;
+			break;
+		case 'l':
+			if (!file_exists(optarg)) {
+				error("Cannot open bootlogo file '%s'\n", optarg);
+				return -1;
+			}
+			bootlogo = optarg;
+			break;
+		case 'b':
+			bgcolor = optarg;
 			break;
 		default:
 			usage();
@@ -164,6 +176,38 @@ int main(int argc, char* argv[]) {
 			error("Unable send the bootx command\n");
 			return -1;
 		}	
+	}
+
+	if (bootlogo != NULL) {
+	        debug("Uploading %s to device\n", bootlogo);
+		ir_error = irecv_send_file(client, bootlogo, 1);
+		if(ir_error != IRECV_E_SUCCESS) {
+			error("Unable to upload bootlogo\n");
+			debug("%s\n", irecv_strerror(ir_error));
+			return -1;
+		}
+
+		ir_error = irecv_send_command(client, "setpicture 1");
+		if(ir_error != IRECV_E_SUCCESS) {
+			error("Unable to set picture\n");
+			return -1;
+		}
+
+                ir_error = irecv_send_command(client, "bgcolor 0 0 0");
+		if(ir_error != IRECV_E_SUCCESS) {
+			error("Unable to set picture\n");
+                        return -1;
+                }
+	}
+
+	if (bgcolor != NULL) {
+		char finalbgcolor[255];
+		sprintf(finalbgcolor, "bgcolor %s", bgcolor);
+		ir_error = irecv_send_command(client, finalbgcolor);
+		if(ir_error != IRECV_E_SUCCESS) {
+			error("Unable set bgcolor\n");
+			return -1;
+		}
 	}
 	
 	if (kernelcacheFile != NULL) {
