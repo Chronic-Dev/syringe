@@ -1,29 +1,37 @@
+# XCode build dir
+build
 
+# Visual studio build dirs
+Debug
+Release
+
+# Visual studio build/solution files
 *.opensdf
 *.sdf
-Debug/*
-_dependencies/curl/Debug/*
-_dependencies/curl/lib/_UpgradeReport_Files/*
-_dependencies/curl/lib/Debug/*
 *.suo
-_dependencies/zlib/Debug/*
-ipch/*
 *.vcxproj.user
-_dependencies/curl/Release/*
-_dependencies/zlib/Release/*
-Release/*
-build/*
+_dependencies/curl/lib/_UpgradeReport_Files/*
+ipch/*
+
+# XCode solution files
 *.pbxuser
 *.mode1v3
+*perspectivev3
+
+# Unix object files
 *.o
 *.a
-exploits/limera1n/payload.bin
-exploits/steaks4uce/payload.bin
-injectpois0n
-tetheredboot
-tools/bin2c
+
+# Compiled payloads
+*.payload
+
+# Binaries (OS X, Unix)
+/injectpois0n
+/tetheredboot
+/loadibec
 .DS_Store
 
+# Misc
 
 tetheredboot-Debug/*
 _dependencies/curl/tetheredboot-Debug/*
@@ -34,3 +42,7 @@ tetheredboot-Release/*
 Dll-Debug
 Dll-Release
 tools/bin2c.exe
+
+Debug-Dynlink
+ipch
+Release-Dynlink

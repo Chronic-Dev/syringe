@@ -21,19 +21,29 @@
 #define COMMON_H
 
 #ifdef __cplusplus
-extern "C" {
+#define EXT_C extern "C"
+#else
+#define EXT_C extern
 #endif
 
 #ifdef _WIN32
-#	ifdef LIBSYRINGE_EXPORTS
-#		define LIBSYRINGE_EXPORT __declspec(dllexport)
+#	ifdef LIBSYRINGE_DYNAMIC
+#		ifdef LIBSYRINGE_EXPORTS
+#			define LIBSYRINGE_EXPORT EXT_C __declspec(dllexport)
+#		else
+#			define LIBSYRINGE_EXPORT EXT_C __declspec(dllimport)
+#		endif
 #	else
-#		define LIBSYRINGE_EXPORT __declspec(dllimport)
+#		define LIBSYRINGE_EXPORT EXT_C
 #	endif
 #else
-#	define LIBSYRINGE_EXPORT extern __attribute__((visibility("default")))
+#	define LIBSYRINGE_EXPORT EXT_C __attribute__((visibility("default")))
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif 
+	
 #include "libirecovery.h"
 
 #ifdef _WIN32

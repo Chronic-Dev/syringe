@@ -1,21 +1,5 @@
 # /Makefile
 
-LIBPOIS0N_NAME = libpois0n
-LIBPOIS0N_TARGET = libpois0n.a
-LIBPOIS0N_DIRECTORY = syringe
+SUBDIRS = syringe utilities
 
-UTILITIES_TARGETS = injectpois0n tetheredboot
-
-TARGETS = $(LIBPOIS0N_TARGET)# $(UTILITIES_TARGETS)
-
-.PHONY $(LIBPOIS0N_TARGET):
-$(LIBPOIS0N_TARGET):
-	$(MAKE) $(@) -C $(LIBPOIS0N_DIRECTORY)
-	$(CP) $(LIBPOIS0N_DIRECTORY)/$(@) $(@)
-
-$(UTILITIES_TARGETS): $(LIBPOIS0N_TARGETS)
-
-all: $(TARGETS)
-
-clean:
-	$(RM) $(TARGETS)
+include common.mk

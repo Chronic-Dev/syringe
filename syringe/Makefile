@@ -1,25 +1,22 @@
 # /syringe/Makefile
 
+SUBDIRS = exploits
+
+MKSTATICLIB = 1
+
+INCLUDES = ../include ../include/resources
+
+SOURCES = \
+	common.c		\
+	libirecovery.c	\
+	libpartial.c	\
+	libpois0n.c		\
+
+PREMADE_OBJECTS = exploits/limera1n.o exploits/steaks4uce.o
+
+LIBRARIES = usb-1.0 curl z
+LDFLAGS = -L/opt/local/lib
+
+TARGET = syringe
+
 include ../common.mk
-
-EXPLOITS_NAME = exploits
-EXPLOITS_TARGET = exploits.a
-EXPLOITS_DIRECTORY = exploits
-
-LIBPOIS0N_NAME = libpois0n
-LIBPOIS0N_TARGET = $(LIBPOIS0N_NAME)$(OS_STATIC_EXT)
-LIBPOIS0N_OBJECTS = $(EXPLOITS_TARGET)
-LIBPOIS0N_DIRECTORY = 
-
-TARGETS = $(LIBPOIS0N_TARGET)
-
-$(EXPLOITS_TARGET):
-	$(MAKE) -C $(EXPLOITS_DIRECTORY)
-	$(CP) $(EXPLOITS_DIRECTORY)/$(EXPLOITS_TARGET) .
-
-$(LIBPOIS0N_TARGET): $(LIBPOIS0N_OBJECTS)
-
-all: $(TARGETS)
-
-clean:
-	$(RM) $(TARGETS)
