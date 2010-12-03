@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Missing Headers">
+      <UniqueIdentifier>{280c6ccf-ca10-4db4-b48f-a1b88f7b22ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\exploits">
+      <UniqueIdentifier>{20a46520-52ae-49f3-8c61-372bdb5db4e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Missing Sources">
+      <UniqueIdentifier>{9778fdeb-1c67-415a-a11c-fb4914b24b8f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\exploits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\libirecovery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\libpartial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\libpois0n.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\payloads.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\resources\ramdisk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\inttypes.h">
+      <Filter>Header Files\Missing Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\libgen.h">
+      <Filter>Header Files\Missing Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\unistd.h">
+      <Filter>Header Files\Missing Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\syringe\common.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\syringe\libirecovery.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\syringe\libpartial.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\syringe\libpois0n.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\syringe\exploits\limera1n\limera1n.c">
+      <Filter>Source Files\exploits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\syringe\exploits\steaks4uce\steaks4uce.c">
+      <Filter>Source Files\exploits</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

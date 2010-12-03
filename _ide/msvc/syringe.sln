@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "syringe", "syringe.vcxproj", "{EAE14B87-6CE5-4147-932F-AAF5426AB859}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3EAB100F-D679-4536-AD59-382EDE1E927C} = {3EAB100F-D679-4536-AD59-382EDE1E927C}
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC} = {82F65A9E-40B4-4585-9FDF-B8790302D9AC}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "curl", "..\..\external\curl\curl.vcxproj", "{82F65A9E-40B4-4585-9FDF-B8790302D9AC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "..\..\external\zlib\zlib.vcxproj", "{3EAB100F-D679-4536-AD59-382EDE1E927C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "injectpois0n", "injectpois0n\injectpois0n.vcxproj", "{2E748451-E853-4045-A6C7-2AF3306BED6D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859} = {EAE14B87-6CE5-4147-932F-AAF5426AB859}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tetheredboot", "tetheredboot\tetheredboot.vcxproj", "{98A98050-564C-4EC1-A091-F42627DE8FA8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859} = {EAE14B87-6CE5-4147-932F-AAF5426AB859}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "loadibec", "loadibec\loadibec.vcxproj", "{23500476-ECB8-4D07-9281-2FE259AE61A3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859} = {EAE14B87-6CE5-4147-932F-AAF5426AB859}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug-Dynlink|Win32 = Debug-Dynlink|Win32
+		Release|Win32 = Release|Win32
+		Release-Dynlink|Win32 = Release-Dynlink|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Debug|Win32.Build.0 = Debug|Win32
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Debug-Dynlink|Win32.ActiveCfg = Debug-Dynlink|Win32
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Debug-Dynlink|Win32.Build.0 = Debug-Dynlink|Win32
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Release|Win32.ActiveCfg = Release|Win32
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Release|Win32.Build.0 = Release|Win32
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Release-Dynlink|Win32.ActiveCfg = Release-Dynlink|Win32
+		{EAE14B87-6CE5-4147-932F-AAF5426AB859}.Release-Dynlink|Win32.Build.0 = Release-Dynlink|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Debug|Win32.Build.0 = Debug|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Debug-Dynlink|Win32.ActiveCfg = Debug-Dynlink|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Debug-Dynlink|Win32.Build.0 = Debug-Dynlink|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Release|Win32.ActiveCfg = Release|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Release|Win32.Build.0 = Release|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Release-Dynlink|Win32.ActiveCfg = Release-Dynlink|Win32
+		{82F65A9E-40B4-4585-9FDF-B8790302D9AC}.Release-Dynlink|Win32.Build.0 = Release-Dynlink|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Debug|Win32.Build.0 = Debug|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Debug-Dynlink|Win32.ActiveCfg = Debug-Dynlink|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Debug-Dynlink|Win32.Build.0 = Debug-Dynlink|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Release|Win32.ActiveCfg = Release|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Release|Win32.Build.0 = Release|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Release-Dynlink|Win32.ActiveCfg = Release-Dynlink|Win32
+		{3EAB100F-D679-4536-AD59-382EDE1E927C}.Release-Dynlink|Win32.Build.0 = Release-Dynlink|Win32
+		{2E748451-E853-4045-A6C7-2AF3306BED6D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2E748451-E853-4045-A6C7-2AF3306BED6D}.Debug|Win32.Build.0 = Debug|Win32
+		{2E748451-E853-4045-A6C7-2AF3306BED6D}.Debug-Dynlink|Win32.ActiveCfg = Debug-Dynlink|Win32
+		{2E748451-E853-4045-A6C7-2AF3306BED6D}.Debug-Dynlink|Win32.Build.0 = Debug-Dynlink|Win32
+		{2E748451-E853-4045-A6C7-2AF3306BED6D}.Release|Win32.ActiveCfg = Release|Win32
+		{2E748451-E853-4045-A6C7-2AF3306BED6D}.Release|Win32.Build.0 = Release|Win32
+		{2E748451-E853-4045-A6C7-2AF3306BED6D}.Release-Dynlink|Win32.ActiveCfg = Release-Dynlink|Win32
+		{2E748451-E853-4045-A6C7-2AF3306BED6D}.Release-Dynlink|Win32.Build.0 = Release-Dynlink|Win32
+		{98A98050-564C-4EC1-A091-F42627DE8FA8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{98A98050-564C-4EC1-A091-F42627DE8FA8}.Debug|Win32.Build.0 = Debug|Win32
+		{98A98050-564C-4EC1-A091-F42627DE8FA8}.Debug-Dynlink|Win32.ActiveCfg = Debug-Dynlink|Win32
+		{98A98050-564C-4EC1-A091-F42627DE8FA8}.Debug-Dynlink|Win32.Build.0 = Debug-Dynlink|Win32
+		{98A98050-564C-4EC1-A091-F42627DE8FA8}.Release|Win32.ActiveCfg = Release|Win32
+		{98A98050-564C-4EC1-A091-F42627DE8FA8}.Release|Win32.Build.0 = Release|Win32
+		{98A98050-564C-4EC1-A091-F42627DE8FA8}.Release-Dynlink|Win32.ActiveCfg = Release-Dynlink|Win32
+		{98A98050-564C-4EC1-A091-F42627DE8FA8}.Release-Dynlink|Win32.Build.0 = Release-Dynlink|Win32
+		{23500476-ECB8-4D07-9281-2FE259AE61A3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{23500476-ECB8-4D07-9281-2FE259AE61A3}.Debug|Win32.Build.0 = Debug|Win32
+		{23500476-ECB8-4D07-9281-2FE259AE61A3}.Debug-Dynlink|Win32.ActiveCfg = Debug-Dynlink|Win32
+		{23500476-ECB8-4D07-9281-2FE259AE61A3}.Debug-Dynlink|Win32.Build.0 = Debug-Dynlink|Win32
+		{23500476-ECB8-4D07-9281-2FE259AE61A3}.Release|Win32.ActiveCfg = Release|Win32
+		{23500476-ECB8-4D07-9281-2FE259AE61A3}.Release|Win32.Build.0 = Release|Win32
+		{23500476-ECB8-4D07-9281-2FE259AE61A3}.Release-Dynlink|Win32.ActiveCfg = Release-Dynlink|Win32
+		{23500476-ECB8-4D07-9281-2FE259AE61A3}.Release-Dynlink|Win32.Build.0 = Release-Dynlink|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
