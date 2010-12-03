@@ -33,6 +33,9 @@
 
 #define LOADIBEC_VERSION "2.00"
 
+int upload_ibss();
+int upload_ibss_payload();
+
 void print_progress(double progress) {
 	int i = 0;
 	if(progress < 0) {
@@ -56,6 +59,10 @@ void print_progress(double progress) {
 	if(progress == 100) {
 		printf("\n");
 	}
+}
+
+void print_pois0n_progress(double progress, void* data) {
+	print_progress(progress);
 }
 
 int progress_cb(irecv_client_t client, const irecv_event_t* event) {
@@ -106,6 +113,7 @@ int main(int argc, char* argv[]) {
 		irecv_exit();
 
 		pois0n_init();
+		pois0n_set_callback(&print_pois0n_progress, NULL);
 
 		int ret = pois0n_is_ready();
 		if(ret < 0)
@@ -115,10 +123,7 @@ int main(int argc, char* argv[]) {
 		if(ret < 0)
 			return ret;
 
-		pois0n_inject();
-
-		irecv_close(client);
-		client = NULL;
+		pois0n_injectonly();
 
 		printf("limera1ned, reconnecting...\n");
 
@@ -127,6 +132,19 @@ int main(int argc, char* argv[]) {
 		{
 			fprintf(stderr, "Failed to reconnect.\n");
 			return 4;
+		}
+
+		printf("uploading ibss...\n");
+		if(upload_ibss() >= 0)
+		{
+			client = irecv_reconnect(client, 10);
+			if(upload_ibss_payload() >= 0)
+			{
+				irecv_send_command(client, "go");
+				printf("iBSS loaded...\n");
+
+				client = irecv_reconnect(client, 10);
+			}
 		}
 	}
 	else
@@ -143,14 +161,15 @@ int main(int argc, char* argv[]) {
 		return 2;
 	}
 
-	error = irecv_send_command(client, "go");
+	if(can_ra1n)
+		error = irecv_send_command(client, "go jump 0x41000000");
+	else
+		error = irecv_send_command(client, "go");
 	if(error != IRECV_E_SUCCESS)
 	{
 		fprintf(stderr, "Failed to jump to uploaded file, error %d.\n", error);
 		return 3;
 	}
-	
-	irecv_send_command(client, "go jmp 0x41000000");
 
 	printf("Uploaded Successfully.\n");
 

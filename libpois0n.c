@@ -40,12 +40,14 @@ static void* user_object = NULL;
 
 
 int recovery_callback(irecv_client_t client, const irecv_event_t* event) {
-	progress_callback(event->progress, user_object);
+	if(progress_callback)
+		progress_callback(event->progress, user_object);
 	return 0;
 }
 
 void download_callback(ZipInfo* info, CDFile* file, size_t progress) {
-	progress_callback(progress, user_object);
+	if(progress_callback)
+		progress_callback(progress, user_object);
 }
 
 int send_command(char* command) {
