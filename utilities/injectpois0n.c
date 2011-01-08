@@ -57,7 +57,18 @@ int main(int argc, char* argv[]) {
 
 	info("Found device in DFU mode\n");
 	if(!pois0n_is_compatible()) {
-		pois0n_inject();
+		if (argc > 1) {
+			if (!strcmp(argv,"-t"))
+				pois0n_inject("1");
+			else if (!strcmp(argv,"-r"))
+				pois0n_inject("0");
+			else if (!strcmp(argv,"-s"))
+				pois0n_inject("2");
+			else if (!strcmp(argv,"-o"))
+				pois0n_inject("3");
+		} else {
+			pois0n_inject(NULL);
+		}
 	}
 
 	pois0n_exit();

@@ -621,21 +621,24 @@ int boot_iboot() {
 	return 0;
 }
 
-int execute_ibss_payload() {
+//bootarg should only be passed IF we want to specify.. otherwise, it MUST BE NULL
+int execute_ibss_payload(char *bootarg) {
 	//int i = 0;
-	char* bootargs = NULL;
+	char* bootargs = bootarg;
 	irecv_error_t error = IRECV_E_SUCCESS;
 
 	debug("Initializing greenpois0n in iBSS\n");
 	irecv_send_command(client, "go");
 
-	// Code to detect whether to boot ramdisk or filesystem
-	debug("Checking if device is already jailbroken\n");
-	error = irecv_getenv(client, "boot-args", &bootargs);
-	if (error != IRECV_E_SUCCESS) {
-		debug("%s\n", irecv_strerror(error));
-		error("Unable to read env var\n");
-		return -1;
+	if (bootargs == NULL) {
+		// Code to detect whether to boot ramdisk or filesystem
+		debug("Checking if device is already jailbroken\n");
+		error = irecv_getenv(client, "boot-args", &bootargs);
+		if (error != IRECV_E_SUCCESS) {
+			debug("%s\n", irecv_strerror(error));
+			error("Unable to read env var\n");
+			return -1;
+		}
 	}
 
 	// If boot-args hasn't been set then we've never been jailbroken
@@ -835,7 +838,8 @@ int pois0n_injectonly() {
 	return 0;
 }
 
-int pois0n_inject() {
+//Bootargs must be NULL unless we want to specify the boot type
+int pois0n_inject(char *bootargs) {
 	int result = 0;
 	result = pois0n_injectonly();
 	if (result < 0) {
@@ -864,7 +868,7 @@ int pois0n_inject() {
 	}
 
 	debug("Executing iBSS payload\n");
-	if (execute_ibss_payload() < 0) {
+	if (execute_ibss_payload(bootargs) < 0) {
 		error("Unable to execute iBSS payload\n");
 		return -1;
 	}
