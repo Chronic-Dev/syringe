@@ -66,6 +66,8 @@ int main(int argc, char* argv[]) {
 				pois0n_inject("2");
 			else if (!strcmp(argv,"-o"))
 				pois0n_inject("3");
+			else if (!strcmp(argv,"--help") || !strcmp(argv,"-h"))
+				printf("injectpois0n\n\t-r  Boot ramdisk\n\t-s  Only execute iBSS payload\n\t-o  Only execute iBSS payload and boot iBoot\n\nUsage: %s [-r|-s|-o]\n", argv[0]);
 		} else {
 			pois0n_inject(NULL);
 		}
