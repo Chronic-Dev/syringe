@@ -47,7 +47,7 @@ void print_progress(double progress, void* data) {
 }
 
 int main(int argc, char* argv[]) {
-	if (!strcmp(argv[1],"--help") || !strcmp(argv[1],"-h")) {
+	if (argc > 1 && (!strcmp(argv[1],"--help") || !strcmp(argv[1],"-h"))) {
 		printf("injectpois0n\n\t-t  Teather Boot\n\t-r  Boot ramdisk\n\t-s  Only execute iBSS payload\n\t-o  Only execute iBSS payload and boot iBoot\n\nUsage: %s [-r|-s|-o]\n", argv[0]);
 		return 0;
 	}
