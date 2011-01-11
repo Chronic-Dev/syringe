@@ -47,6 +47,10 @@ void print_progress(double progress, void* data) {
 }
 
 int main(int argc, char* argv[]) {
+	if (!strcmp(argv[1],"--help") || !strcmp(argv[1],"-h")) {
+		printf("injectpois0n\n\t-t  Teather Boot\n\t-r  Boot ramdisk\n\t-s  Only execute iBSS payload\n\t-o  Only execute iBSS payload and boot iBoot\n\nUsage: %s [-r|-s|-o]\n", argv[0]);
+		return 0;
+	}
 	pois0n_init();
 	pois0n_set_callback(&print_progress, NULL);
 
@@ -58,16 +62,14 @@ int main(int argc, char* argv[]) {
 	info("Found device in DFU mode\n");
 	if(!pois0n_is_compatible()) {
 		if (argc > 1) {
-			if (!strcmp(argv,"-t"))
+			if (!strcmp(argv[1],"-t"))
 				pois0n_inject("1");
-			else if (!strcmp(argv,"-r"))
+			else if (!strcmp(argv[1],"-r"))
 				pois0n_inject("0");
-			else if (!strcmp(argv,"-s"))
+			else if (!strcmp(argv[1],"-s"))
 				pois0n_inject("2");
-			else if (!strcmp(argv,"-o"))
+			else if (!strcmp(argv[1],"-o"))
 				pois0n_inject("3");
-			else if (!strcmp(argv,"--help") || !strcmp(argv,"-h"))
-				printf("injectpois0n\n\t-r  Boot ramdisk\n\t-s  Only execute iBSS payload\n\t-o  Only execute iBSS payload and boot iBoot\n\nUsage: %s [-r|-s|-o]\n", argv[0]);
 		} else {
 			pois0n_inject(NULL);
 		}
