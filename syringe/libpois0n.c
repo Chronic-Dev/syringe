@@ -287,11 +287,16 @@ int upload_firmware_payload(const char* type) {
 		}
 		break;
 
+             case DEVICE_IPOD1G:
+           if (!strcmp(type, "iBSS")) {
+          payload = iBSS_n45ap;
+               size = sizeof(iBSS_n45ap);
+                  debug("Loaded payload for iBSS on n18ap\n")
 	case DEVICE_IPOD3G:
 		if (!strcmp(type, "iBSS")) {
-			payload = iBSS_n18ap;
-			size = sizeof(iBSS_n18ap);
-			debug("Loaded payload for iBSS on n18ap\n");
+			payload = iBSS_n45ap;
+			size = sizeof(iBSS_n45ap);
+			debug("Loaded payload for iBSS on n45ap\n");
 		}
 		/*
 		 if(!strcmp(type, "iBEC")) {
